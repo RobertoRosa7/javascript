@@ -1,0 +1,1374 @@
+
+{
+  "@context": "http://schema.org",
+  "@type": "Restaurant",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "New York",
+    "addressRegion": "NY",
+    "postalCode": "10014",
+    "streetAddress": "496 Hudson St"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "40.73291",
+    "longitude": "-74.00626"
+  },
+  
+  "name": "CC&#39;s Cafe",
+  "servesCuisine": [
+        
+            "Coffee &amp; Tea"
+            ,
+        
+            "Sandwiches"
+            
+        
+  ],
+  "hasMenu": [
+  
+  {
+    "@type": "Menu",
+    "name": "Main",
+    "hasMenuSection":[
+    
+    {
+      "@type":"MenuSection",
+      "name":"Beverages",
+      "description":" ",
+      "hasMenuItem":[
+      
+      {
+        "@type":"MenuItem",
+        "name":"Hot Chocolate",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "3.50",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "3.95",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Orange Juice",
+        "description":"Fresh squeezed.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "4.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Lemonade",
+        "description":"Fresh squeezed.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "3.00",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "3.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Milk",
+        "description":"Steamed or cold.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.25",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "2.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Canned Soda",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "1.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Stewarts Root Beer",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Snapple",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Bottled Water",
+        "description":"Poland Spring.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "1.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      }
+      
+      ]
+      
+    },
+    
+    {
+      "@type":"MenuSection",
+      "name":"Coffee and Espresso",
+      "description":" ",
+      "hasMenuItem":[
+      
+      {
+        "@type":"MenuItem",
+        "name":"Coffee",
+        "description":"Special blend of Colombian beans.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "1.50",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "2.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Cafe Con Leche",
+        "description":"Espresso with condensed milk and steamed milk.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "3.50",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "3.95",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Espresso",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Double Espresso",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "3.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Americano",
+        "description":"Espresso with water.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.50",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "3.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Cappuccino",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "3.50",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "3.95",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Cafe Latte",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "3.50",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "3.95",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Mocha",
+        "description":"Espresso with steamed milk and chocolate.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "3.50",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "3.95",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Cafe Au Lait",
+        "description":"Half coffee with half steamed milk.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.25",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "2.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Macchiato",
+        "description":"Espresso shot with milk foam.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.50",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "3.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      }
+      
+      ]
+      
+    },
+    
+    {
+      "@type":"MenuSection",
+      "name":"Tea",
+      "description":" ",
+      "hasMenuItem":[
+      
+      {
+        "@type":"MenuItem",
+        "name":"Hot Tea",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "1.50",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "2.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Iced Tea",
+        "description":"Regular black tea.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.25",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "2.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Flavored Iced Tea",
+        "description":"Contact restaurant for varieties.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.25",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "2.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Chai Latte",
+        "description":"Combination of black tea, honey, ginger, vanilla and steamed milk.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "3.50",
+          "priceCurrency":"USD"
+        },
+        
+        {
+          "@type":"Offer",
+          "Price": "3.95",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      }
+      
+      ]
+      
+    },
+    
+    {
+      "@type":"MenuSection",
+      "name":"Smoothies",
+      "description":" ",
+      "hasMenuItem":[
+      
+      {
+        "@type":"MenuItem",
+        "name":"Banana Split Smoothie",
+        "description":"Bananas, strawberries, walnuts, skim milk, chocolate whey protein and honey.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.25",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Berry Smooth Smoothie",
+        "description":"Orange juice, strawberries, vanilla whey protein, bananas, blueberries and honey.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.25",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Big Blue Apple Smoothie",
+        "description":"Pineapple juice, bananas, blueberries, vanilla whey protein and honey.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.25",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Guiltless Chocolate Shake Smoothie",
+        "description":"Skim or soy milk, chocolate whey protein, bananas and honey.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.25",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Just Bananas Smoothie",
+        "description":"Bananas, vanilla whey protein, skim milk and honey.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.25",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Ray of Sunshine Smoothie",
+        "description":"Pineapple juice, bananas, strawberries, vanilla whey protein and honey.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.25",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Soy Goodness Smoothie",
+        "description":"Soy milk, bananas, strawberries, chocolate whey protein and honey.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.25",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Village Colada Smoothie",
+        "description":"Bananas, coconut extract, vanilla whey protein, pineapple juice and honey.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.25",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      }
+      
+      ]
+      
+    },
+    
+    {
+      "@type":"MenuSection",
+      "name":"Bakery",
+      "description":" ",
+      "hasMenuItem":[
+      
+      {
+        "@type":"MenuItem",
+        "name":"Croissant",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Muffin",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Bagel",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "1.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      }
+      
+      ]
+      
+    },
+    
+    {
+      "@type":"MenuSection",
+      "name":"Soups and Salads",
+      "description":"Tomato,Cucumber,Celery,Olives,Avocado,Corn,Roasted Red Peppers,Alfalfa Sprouts,Kidney Beans,Chickpeas,Red Onion,Mushrooms",
+      "hasMenuItem":[
+      
+      {
+        "@type":"MenuItem",
+        "name":"Soup of the Day",
+        "description":"Call restaurant for today&#39;s selection. Served with whole wheat focaccia bread.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Soup and 1/2 Sandwich",
+        "description":"Call restaurant for today&#39;s soup selection.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "8.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Soup and 1/2 Salad",
+        "description":"Call restaurant for today&#39;s soup selection. Salad is served with choice of three vegetables.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "9.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"CC&#39;s Mixed Greens",
+        "description":"Cucumber, tomatoes, celery, olives and carrots.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "8.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Spinach Salad",
+        "description":"Goat cheese, red onions and portobello mushrooms.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "9.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"CC&#39;s Caesar Salad",
+        "description":"Parmesan cheese, romaine lettuce and croutons.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "8.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      }
+      
+      ]
+      
+    },
+    
+    {
+      "@type":"MenuSection",
+      "name":"Make Your Own Salad",
+      "description":" ",
+      "hasMenuItem":[
+      
+      {
+        "@type":"MenuItem",
+        "name":"Make Your Own Salad",
+        "description":"Choice of greens, five veggies, one meat, one cheese and one dressing.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "11.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      }
+      
+      ]
+      
+    },
+    
+    {
+      "@type":"MenuSection",
+      "name":"Egg Wraps",
+      "description":" ",
+      "hasMenuItem":[
+      
+      {
+        "@type":"MenuItem",
+        "name":"CC&#39;s Egg Wrap",
+        "description":"Three scrambled eggs with avocado, salami, cream cheese and red onions wrapped in a whole wheat tortilla.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Nova Egg Wrap",
+        "description":"Three scrambled eggs with cream cheese, smoked salmon, and red onions wrapped in a whole wheat tortilla.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Italian Egg Wrap",
+        "description":"Three scrambled eggs with roasted red peppers, mozzarella cheese and pesto mayonnaise wrapped in a whole wheat tortilla.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Spanish Egg Wrap",
+        "description":"Three scrambled eggs with mortadella, red onions and Jarlsberg cheese wrapped in a whole wheat tortilla.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Mexican Egg Wrap",
+        "description":"Three scrambled eggs with avocado, salsa and red onions wrapped in a whole wheat tortilla.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.95",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"House Egg Wrap",
+        "description":"Three scrambled eggs with portobello mushrooms, bacon and Jarlsberg cheese wrapped in a whole wheat tortilla.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Make Your Own Egg Wrap",
+        "description":"Three scrambled eggs with choice of cheese, meat and vegetables wrapped in a whole wheat tortilla.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      }
+      
+      ]
+      
+    },
+    
+    {
+      "@type":"MenuSection",
+      "name":"Eggs",
+      "description":" ",
+      "hasMenuItem":[
+      
+      {
+        "@type":"MenuItem",
+        "name":"Omelette",
+        "description":"Three eggs with three ingredients and side salad.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "8.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"2 Eggs on Bagel",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "3.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"2 Eggs on Bread",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "3.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      }
+      
+      ]
+      
+    },
+    
+    {
+      "@type":"MenuSection",
+      "name":"Sandwiches",
+      "description":" ",
+      "hasMenuItem":[
+      
+      {
+        "@type":"MenuItem",
+        "name":"West Village Sandwich",
+        "description":"Avocado, Jarlsberg cheese, pesto mayonnaise and sprouts. Served with potato salad, coleslaw or mixed greens.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "8.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Curry Sandwich",
+        "description":"Tandoori chicken salad with raisins, shredded carrots, lettuce and tomatoes.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "8.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Quesadilla",
+        "description":"Marinated chicken, cheese, avocado and chipotle mayonnaise.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "9.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Chicken Tarragon Sandwich",
+        "description":"Chicken salad with lettuce and tomato.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "8.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Veggie Wrap",
+        "description":"Marinated portobello mushrooms, spinach, red onions, avocado, sprouts and pesto mayonnaise in a whole wheat wrap.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "9.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Le Paysan Sandwich",
+        "description":"Roasted turkey, brie cheese, apple chutney and pesto mayonnaise.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "9.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Le Fermier Sandwich",
+        "description":"Grilled or blackened chicken, pesto mayonnaise, lettuce and tomato.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "9.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Tuna Salad Sandwich",
+        "description":"Tuna salad with lettuce and tomato.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "8.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Cuban Sandwich",
+        "description":"Roasted pork, mortadella, mustard, pickles, Jarlsberg cheese and chipotle mayonnaise.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "9.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Quiche",
+        "description":"Served with a side salad.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "8.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Veggie Burger",
+        "description":"Veggie burger with red onions, pesto mayonnaise, lettuce and tomato.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "8.75",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      }
+      
+      ]
+      
+    },
+    
+    {
+      "@type":"MenuSection",
+      "name":"Sides",
+      "description":" ",
+      "hasMenuItem":[
+      
+      {
+        "@type":"MenuItem",
+        "name":"Potato Salad",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Coleslaw",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Mixed Greens",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "6.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      }
+      
+      ]
+      
+    },
+    
+    {
+      "@type":"MenuSection",
+      "name":"Desserts",
+      "description":" ",
+      "hasMenuItem":[
+      
+      {
+        "@type":"MenuItem",
+        "name":"Brownie",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "4.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Cupcakes",
+        "description":"Please call in to check the availability of the item since it may not be available. This item is prepared fresh daily and it might not be available if the restaurant runs out of it.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Carrot Cake",
+        "description":"Please call in to check the availability of the item since it may not be available. This item is prepared fresh daily and it might not be available if the restaurant runs out of it.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "4.50",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Banana Bread Pudding",
+        "description":"Please call in to check the availability of the item since it may not be available. This item is prepared fresh daily and it might not be available if the restaurant runs out of it.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "5.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Apple Turnover",
+        "description":"Please call in to check the availability of the item since it may not be available. This item is prepared fresh daily and it might not be available if the restaurant runs out of it.",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "4.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      },
+      
+      {
+        "@type":"MenuItem",
+        "name":"Large Cookie",
+        "description":"",
+        "offers":[
+        
+        {
+          "@type":"Offer",
+          "Price": "2.00",
+          "priceCurrency":"USD"
+        }
+        
+        ]
+        
+      }
+      
+      ]
+      
+    }
+    
+    ]
+  }
+  
+  ],
+  "priceRange": "",
+  "openingHours": "Mon-Fri: 7am-9pm Sat: 8am-9pm Sun: 8am-7pm",
+  "telephone": "(646) 638-2800",
+  "url": "https://www.allmenus.com/ny/new-york/141126-ccs-cafe/menu/"
+}
+{  "@context": "http://schema.org",  "@type": "Restaurant",  "address": {    "@type": "PostalAddress",    "addressLocality": "New York",    "addressRegion": "NY",    "postalCode": "10014",    "streetAddress": "496 Hudson St"  },  "geo": {    "@type": "GeoCoordinates",    "latitude": "40.73291",    "longitude": "-74.00626"  },    "name": "CC&#39;s Cafe",  "servesCuisine": [                    "Coffee &amp; Tea"            ,                    "Sandwiches"                      ],  "hasMenu": [    {    "@type": "Menu",    "name": "Main",    "hasMenuSection":[        {      "@type":"MenuSection",      "name":"Beverages",      "description":" ",      "hasMenuItem":[            {        "@type":"MenuItem",        "name":"Hot Chocolate",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "3.50",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "3.95",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Orange Juice",        "description":"Fresh squeezed.",        "offers":[                {          "@type":"Offer",          "Price": "4.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Lemonade",        "description":"Fresh squeezed.",        "offers":[                {          "@type":"Offer",          "Price": "3.00",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "3.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Milk",        "description":"Steamed or cold.",        "offers":[                {          "@type":"Offer",          "Price": "2.25",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "2.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Canned Soda",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "1.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Stewarts Root Beer",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "2.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Snapple",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "2.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Bottled Water",        "description":"Poland Spring.",        "offers":[                {          "@type":"Offer",          "Price": "1.50",          "priceCurrency":"USD"        }                ]              }            ]          },        {      "@type":"MenuSection",      "name":"Coffee and Espresso",      "description":" ",      "hasMenuItem":[            {        "@type":"MenuItem",        "name":"Coffee",        "description":"Special blend of Colombian beans.",        "offers":[                {          "@type":"Offer",          "Price": "1.50",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "2.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Cafe Con Leche",        "description":"Espresso with condensed milk and steamed milk.",        "offers":[                {          "@type":"Offer",          "Price": "3.50",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "3.95",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Espresso",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "2.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Double Espresso",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "3.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Americano",        "description":"Espresso with water.",        "offers":[                {          "@type":"Offer",          "Price": "2.50",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "3.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Cappuccino",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "3.50",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "3.95",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Cafe Latte",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "3.50",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "3.95",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Mocha",        "description":"Espresso with steamed milk and chocolate.",        "offers":[                {          "@type":"Offer",          "Price": "3.50",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "3.95",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Cafe Au Lait",        "description":"Half coffee with half steamed milk.",        "offers":[                {          "@type":"Offer",          "Price": "2.25",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "2.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Macchiato",        "description":"Espresso shot with milk foam.",        "offers":[                {          "@type":"Offer",          "Price": "2.50",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "3.50",          "priceCurrency":"USD"        }                ]              }            ]          },        {      "@type":"MenuSection",      "name":"Tea",      "description":" ",      "hasMenuItem":[            {        "@type":"MenuItem",        "name":"Hot Tea",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "1.50",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "2.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Iced Tea",        "description":"Regular black tea.",        "offers":[                {          "@type":"Offer",          "Price": "2.25",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "2.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Flavored Iced Tea",        "description":"Contact restaurant for varieties.",        "offers":[                {          "@type":"Offer",          "Price": "2.25",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "2.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Chai Latte",        "description":"Combination of black tea, honey, ginger, vanilla and steamed milk.",        "offers":[                {          "@type":"Offer",          "Price": "3.50",          "priceCurrency":"USD"        },                {          "@type":"Offer",          "Price": "3.95",          "priceCurrency":"USD"        }                ]              }            ]          },        {      "@type":"MenuSection",      "name":"Smoothies",      "description":" ",      "hasMenuItem":[            {        "@type":"MenuItem",        "name":"Banana Split Smoothie",        "description":"Bananas, strawberries, walnuts, skim milk, chocolate whey protein and honey.",        "offers":[                {          "@type":"Offer",          "Price": "6.25",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Berry Smooth Smoothie",        "description":"Orange juice, strawberries, vanilla whey protein, bananas, blueberries and honey.",        "offers":[                {          "@type":"Offer",          "Price": "6.25",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Big Blue Apple Smoothie",        "description":"Pineapple juice, bananas, blueberries, vanilla whey protein and honey.",        "offers":[                {          "@type":"Offer",          "Price": "6.25",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Guiltless Chocolate Shake Smoothie",        "description":"Skim or soy milk, chocolate whey protein, bananas and honey.",        "offers":[                {          "@type":"Offer",          "Price": "6.25",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Just Bananas Smoothie",        "description":"Bananas, vanilla whey protein, skim milk and honey.",        "offers":[                {          "@type":"Offer",          "Price": "6.25",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Ray of Sunshine Smoothie",        "description":"Pineapple juice, bananas, strawberries, vanilla whey protein and honey.",        "offers":[                {          "@type":"Offer",          "Price": "6.25",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Soy Goodness Smoothie",        "description":"Soy milk, bananas, strawberries, chocolate whey protein and honey.",        "offers":[                {          "@type":"Offer",          "Price": "6.25",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Village Colada Smoothie",        "description":"Bananas, coconut extract, vanilla whey protein, pineapple juice and honey.",        "offers":[                {          "@type":"Offer",          "Price": "6.25",          "priceCurrency":"USD"        }                ]              }            ]          },        {      "@type":"MenuSection",      "name":"Bakery",      "description":" ",      "hasMenuItem":[            {        "@type":"MenuItem",        "name":"Croissant",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "2.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Muffin",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "2.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Bagel",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "1.50",          "priceCurrency":"USD"        }                ]              }            ]          },        {      "@type":"MenuSection",      "name":"Soups and Salads",      "description":"Tomato,Cucumber,Celery,Olives,Avocado,Corn,Roasted Red Peppers,Alfalfa Sprouts,Kidney Beans,Chickpeas,Red Onion,Mushrooms",      "hasMenuItem":[            {        "@type":"MenuItem",        "name":"Soup of the Day",        "description":"Call restaurant for today&#39;s selection. Served with whole wheat focaccia bread.",        "offers":[                {          "@type":"Offer",          "Price": "6.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Soup and 1/2 Sandwich",        "description":"Call restaurant for today&#39;s soup selection.",        "offers":[                {          "@type":"Offer",          "Price": "8.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Soup and 1/2 Salad",        "description":"Call restaurant for today&#39;s soup selection. Salad is served with choice of three vegetables.",        "offers":[                {          "@type":"Offer",          "Price": "9.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"CC&#39;s Mixed Greens",        "description":"Cucumber, tomatoes, celery, olives and carrots.",        "offers":[                {          "@type":"Offer",          "Price": "8.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Spinach Salad",        "description":"Goat cheese, red onions and portobello mushrooms.",        "offers":[                {          "@type":"Offer",          "Price": "9.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"CC&#39;s Caesar Salad",        "description":"Parmesan cheese, romaine lettuce and croutons.",        "offers":[                {          "@type":"Offer",          "Price": "8.75",          "priceCurrency":"USD"        }                ]              }            ]          },        {      "@type":"MenuSection",      "name":"Make Your Own Salad",      "description":" ",      "hasMenuItem":[            {        "@type":"MenuItem",        "name":"Make Your Own Salad",        "description":"Choice of greens, five veggies, one meat, one cheese and one dressing.",        "offers":[                {          "@type":"Offer",          "Price": "11.75",          "priceCurrency":"USD"        }                ]              }            ]          },        {      "@type":"MenuSection",      "name":"Egg Wraps",      "description":" ",      "hasMenuItem":[            {        "@type":"MenuItem",        "name":"CC&#39;s Egg Wrap",        "description":"Three scrambled eggs with avocado, salami, cream cheese and red onions wrapped in a whole wheat tortilla.",        "offers":[                {          "@type":"Offer",          "Price": "6.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Nova Egg Wrap",        "description":"Three scrambled eggs with cream cheese, smoked salmon, and red onions wrapped in a whole wheat tortilla.",        "offers":[                {          "@type":"Offer",          "Price": "6.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Italian Egg Wrap",        "description":"Three scrambled eggs with roasted red peppers, mozzarella cheese and pesto mayonnaise wrapped in a whole wheat tortilla.",        "offers":[                {          "@type":"Offer",          "Price": "6.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Spanish Egg Wrap",        "description":"Three scrambled eggs with mortadella, red onions and Jarlsberg cheese wrapped in a whole wheat tortilla.",        "offers":[                {          "@type":"Offer",          "Price": "6.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Mexican Egg Wrap",        "description":"Three scrambled eggs with avocado, salsa and red onions wrapped in a whole wheat tortilla.",        "offers":[                {          "@type":"Offer",          "Price": "6.95",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"House Egg Wrap",        "description":"Three scrambled eggs with portobello mushrooms, bacon and Jarlsberg cheese wrapped in a whole wheat tortilla.",        "offers":[                {          "@type":"Offer",          "Price": "6.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Make Your Own Egg Wrap",        "description":"Three scrambled eggs with choice of cheese, meat and vegetables wrapped in a whole wheat tortilla.",        "offers":[                {          "@type":"Offer",          "Price": "6.50",          "priceCurrency":"USD"        }                ]              }            ]          },        {      "@type":"MenuSection",      "name":"Eggs",      "description":" ",      "hasMenuItem":[            {        "@type":"MenuItem",        "name":"Omelette",        "description":"Three eggs with three ingredients and side salad.",        "offers":[                {          "@type":"Offer",          "Price": "8.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"2 Eggs on Bagel",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "3.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"2 Eggs on Bread",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "3.75",          "priceCurrency":"USD"        }                ]              }            ]          },        {      "@type":"MenuSection",      "name":"Sandwiches",      "description":" ",      "hasMenuItem":[            {        "@type":"MenuItem",        "name":"West Village Sandwich",        "description":"Avocado, Jarlsberg cheese, pesto mayonnaise and sprouts. Served with potato salad, coleslaw or mixed greens.",        "offers":[                {          "@type":"Offer",          "Price": "8.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Curry Sandwich",        "description":"Tandoori chicken salad with raisins, shredded carrots, lettuce and tomatoes.",        "offers":[                {          "@type":"Offer",          "Price": "8.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Quesadilla",        "description":"Marinated chicken, cheese, avocado and chipotle mayonnaise.",        "offers":[                {          "@type":"Offer",          "Price": "9.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Chicken Tarragon Sandwich",        "description":"Chicken salad with lettuce and tomato.",        "offers":[                {          "@type":"Offer",          "Price": "8.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Veggie Wrap",        "description":"Marinated portobello mushrooms, spinach, red onions, avocado, sprouts and pesto mayonnaise in a whole wheat wrap.",        "offers":[                {          "@type":"Offer",          "Price": "9.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Le Paysan Sandwich",        "description":"Roasted turkey, brie cheese, apple chutney and pesto mayonnaise.",        "offers":[                {          "@type":"Offer",          "Price": "9.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Le Fermier Sandwich",        "description":"Grilled or blackened chicken, pesto mayonnaise, lettuce and tomato.",        "offers":[                {          "@type":"Offer",          "Price": "9.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Tuna Salad Sandwich",        "description":"Tuna salad with lettuce and tomato.",        "offers":[                {          "@type":"Offer",          "Price": "8.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Cuban Sandwich",        "description":"Roasted pork, mortadella, mustard, pickles, Jarlsberg cheese and chipotle mayonnaise.",        "offers":[                {          "@type":"Offer",          "Price": "9.75",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Quiche",        "description":"Served with a side salad.",        "offers":[                {          "@type":"Offer",          "Price": "8.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Veggie Burger",        "description":"Veggie burger with red onions, pesto mayonnaise, lettuce and tomato.",        "offers":[                {          "@type":"Offer",          "Price": "8.75",          "priceCurrency":"USD"        }                ]              }            ]          },        {      "@type":"MenuSection",      "name":"Sides",      "description":" ",      "hasMenuItem":[            {        "@type":"MenuItem",        "name":"Potato Salad",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "6.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Coleslaw",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "6.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Mixed Greens",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "6.00",          "priceCurrency":"USD"        }                ]              }            ]          },        {      "@type":"MenuSection",      "name":"Desserts",      "description":" ",      "hasMenuItem":[            {        "@type":"MenuItem",        "name":"Brownie",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "4.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Cupcakes",        "description":"Please call in to check the availability of the item since it may not be available. This item is prepared fresh daily and it might not be available if the restaurant runs out of it.",        "offers":[                {          "@type":"Offer",          "Price": "2.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Carrot Cake",        "description":"Please call in to check the availability of the item since it may not be available. This item is prepared fresh daily and it might not be available if the restaurant runs out of it.",        "offers":[                {          "@type":"Offer",          "Price": "4.50",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Banana Bread Pudding",        "description":"Please call in to check the availability of the item since it may not be available. This item is prepared fresh daily and it might not be available if the restaurant runs out of it.",        "offers":[                {          "@type":"Offer",          "Price": "5.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Apple Turnover",        "description":"Please call in to check the availability of the item since it may not be available. This item is prepared fresh daily and it might not be available if the restaurant runs out of it.",        "offers":[                {          "@type":"Offer",          "Price": "4.00",          "priceCurrency":"USD"        }                ]              },            {        "@type":"MenuItem",        "name":"Large Cookie",        "description":"",        "offers":[                {          "@type":"Offer",          "Price": "2.00",          "priceCurrency":"USD"        }                ]              }            ]          }        ]  }    ],  "priceRange": "",  "openingHours": "Mon-Fri: 7am-9pm Sat: 8am-9pm Sun: 8am-7pm",  "telephone": "(646) 638-2800",  "url": "https://www.allmenus.com/ny/new-york/141126-ccs-cafe/menu/"}
