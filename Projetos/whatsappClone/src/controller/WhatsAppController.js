@@ -1,9 +1,9 @@
 // importando classes 
-import { Format } from './../utils/Format';
+import { Format } from '../utils/Format';
 import { CameraController } from './CameraController';
 import { DocumentPreviewController } from './DocumentPreviewController';
 import { PhoneController } from './PhoneController';
-import { Firebase } from './../utils/Firebase';
+import { Firebase } from '../utils/Firebase';
 import { User } from '../model/User';
 import { Chat } from '../model/Chat';
 import { Messages } from '../model/Messages';
