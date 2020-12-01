@@ -3,12 +3,40 @@
   document.onreadystatechange = function () {
     "use strict";
     if (document.readyState === "complete") {
+      if (typeof Worker !== undefined) {
+        const worker = new Worker("worker.js");
+        const first = document.querySelector("#first");
+        const second = document.querySelector("#second");
+
+        first.addEventListener("change", function () {
+          worker.postMessage(first.value);
+        });
+        second.addEventListener("change", function () {
+          worker.postMessage(second.value);
+        });
+        worker.onmessage = function (e) {
+          console.log(`Message receive from worker: ${e.data}`);
+        };
+      } else {
+        console.log("The Browser is not supported Web Worker");
+      }
       initialize();
     }
   };
 })();
 
 function initialize() {
+  /*
+   function declaration: function nameFunc() {}
+    here is excecute code first this example doesn’t throw an error because the function declaration
+    is read fi rst before the code begins to execute.
+
+   function expression: var nameFunc = function() {}
+    if the function is called after of its declaration throw an error because the function is declare
+    
+    sayHi('oi') // error function doesn't exist yet
+    var sayHi = function(string) {}
+  */
   "use strict";
 
   const title = document.querySelector("#title");
@@ -20,7 +48,7 @@ function initialize() {
   div.appendChild(p);
   div.appendChild(compare(10, 9));
   div.appendChild(breakPointContinue());
-  div.appendChild(outermoster())
+  div.appendChild(outermoster());
 
   document.body.append(div);
 
