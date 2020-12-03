@@ -1,1 +1,34 @@
-<h1>Left Frame</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frame Left</title>
+</head>
+
+<body>
+  <button onclick="openLink()">open link</button>
+  <button onclick="moveToWindow()">move window</button>
+  <button onclick="resizeToWindow()">resize window</button>
+</body>
+
+<script>
+  var win
+  function openLink() {
+    win = window.open("http://localhost:3000/left.htm", "google", "height=640, width=500, top=150, left=450 resizable=yes")
+  }
+
+  function moveToWindow() {
+    if (win) {
+      win.moveTo(500, 500)
+    }
+  }
+  function resizeToWindow() {
+    if (win) {
+      win.resizeTo(100, 100)
+    }
+  }
+</script>
+
+</html>

@@ -17,7 +17,42 @@
 </frameset>
 
 <body>
+  <script>
+    // screenX, screenY: Opera e Safari ou Firefox
+    // screenLeft, screenTop: Chrome
 
+    var leftPos = (window.screenLeft == 'number') ? window.screenLeft : window.screenX
+    var topPos = (window.screenTop == 'number') ? window.screenTop : window.screeY
+
+    // moveTo(x,y): usa coordenada
+    // moveBy(x,y): usa pixel 
+
+    /*
+      window size:
+      ------------
+      innerWidth, innerHeight, outerWidth, outerHeight
+      determina a dimensão do window do navegador
+    */
+
+    // get pageviewport
+    var pageWidth = window.innerWidth
+    var pageHeight = window.innerHeight
+
+    if (typeof pageWidth != 'number') {
+      if (document.compatMode == 'CSS1Compat') {
+        pageWidth = document.documentElement.clientWidth
+        pageHeight = document.documentElement.clientHeight
+      } else {
+        pageWidth = document.body.clientWidth
+        pageHeight = document.body.clientHeight
+      }
+    }
+
+    console.log('width: ', pageWidth, 'height: ', pageHeight)
+    const plugin = window.Plugin()
+    console.log(plugin)
+
+  </script>
 </body>
 
 </html>
