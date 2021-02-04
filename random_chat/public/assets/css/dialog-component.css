@@ -1,0 +1,105 @@
+.dialog-attach-contact{
+    position: absolute;
+    top:0;
+    left:0;
+    background: rgba(0,0,0,0.55);
+    width:100%;
+    height:100%;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    transition: all 0.2s;
+    transform:scale(0);
+}
+.dialog-attach-contact .container-contact{
+    width:100%;
+    max-width:450px;
+    height:100%;
+    max-height:400px;
+    margin: 0 auto;
+    background: var(--color-black);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;           
+}
+.dialog-attach-contact .container-contact .header-contact,
+.dialog-attach-contact .container-contact .footer-contact{
+    padding:8px 16px;
+}
+.dialog-attach-contact .container-contact .header-contact{
+    background: var(--color-dark);
+    border-radius: 8px 8px 0px 0px;
+}
+.dialog-attach-contact .container-contact .content-contact{
+    list-style: none;
+    display:flex;
+    flex-direction: column;
+    height:250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.dialog-attach-contact .container-contact .content-contact li{
+    display:flex;
+    align-items: center;
+    margin: 8px 0;
+    color: var(--color-white);
+    padding:0 25px;
+}
+.dialog-attach-contact .container-contact .content-contact li:hover{
+    background: var(--color-dark);
+}
+.dialog-attach-contact .container-contact .content-contact li input[type="checkbox"]{
+   display:none;
+}
+.dialog-attach-contact .container-contact .content-contact li input[type="checkbox"] + label::before{
+  content: '\2714';
+  outline: 0.1em solid var(--color-orange);
+  display:inline-block;
+  width:1em;
+  height:1em;
+  padding-left: 0.3em;
+  padding-bottom: 0.3em;
+  padding-right: 0.2em;
+  vertical-align: bottom;
+  color:transparent;
+}
+.dialog-attach-contact .container-contact .content-contact li input[type="checkbox"]:checked + label::before{
+    background-color: var(--color-dark);
+    outline: none;
+    color: var(--color-orange);
+}
+
+.dialog-attach-contact .container-contact .content-contact li label{
+    display:flex;
+    cursor:pointer;
+    width:100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+.dialog-attach-contact .container-contact .content-contact li label .img{
+    width:20%;
+    display:flex;
+}
+.dialog-attach-contact .container-contact .content-contact li label .img span,
+.dialog-attach-contact .container-contact .content-contact li label .img img{
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+}
+.dialog-attach-contact .container-contact .content-contact li label .img span i{
+    font-size:40px;
+}
+.dialog-attach-contact .container-contact .content-contact li label .text{
+    width:80%;
+    display:flex;
+    flex-direction: column;
+}
+.dialog-attach-contact .container-contact .footer-contact{
+    color:var(--color-white);
+}
+.dialog-attach-contact .container-contact button{
+    position:absolute;
+    bottom:30px;
+    right:0;
+}

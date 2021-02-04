@@ -1,0 +1,119 @@
+@import '../css/global.css';
+@import '../css/hidemenu-component.css';
+@import '../css/dialog-component.css';
+@import '../css/profile-card-component.css';
+@import '../css/snackbar-component.css';
+@import '../css/carousel-component.css';
+@import '../css/notfound-component.css';
+@import '../css/sidebar-component.css';
+@import '../css/chat-component.css';
+@import '../css/contact-component.css';
+@import '../css/random-button-component.css';
+@import '../css/search-contacts.css';
+@import '../css/loading-page-component.css';
+@import '../css/login-component.css';
+@import '../css/infinite-load.css';
+
+.main{
+    width:100%;
+    height:100%;
+    display:none;
+    position: relative;
+}
+
+/* MEDIA QUERIES */
+@media (max-width:768px){
+    .main{
+        justify-content: center;
+    }
+    .main .nav{
+        position:fixed;
+        top:0;
+        left:0;
+    }
+    .main .container-contact{
+        display:none;
+    }
+    .main .container-chat{
+        width:100%;
+    }
+    .container-chat .box .chat{
+        padding:0;
+        margin: 0;
+    }
+    .nav .status-header .back-button,
+    .container-chat .box .chat .status-bar-mobile{
+        display:block;
+    }
+    .login .form .form-container .side-right{
+        display:none;
+    }
+    .login .form .form-container .side-left{
+        width:100%;
+        max-width:320px;
+        margin: 0 auto;
+    }
+    .login .notification{
+        width:90%;
+        max-width:300px;
+    }
+    .login .form-container .verification .v-code .form-group{
+        width: 100%;
+    }
+    .login .form-container .verification .v-code .form-group input{
+        width:50%;
+    }
+    .login .form .form-container h2{
+        font-size:1.2em;
+    }
+    .login .form-container .verification .menssage span{
+        display:block;
+    }
+}
+
+@media (min-width:769px) and (max-width:1024px){
+    .main .container-contact{
+        display:none;
+    }
+    .main .container-chat{
+        width:73%;
+        margin:0 auto;
+    }
+    .nav .status-header .back-button,
+    .container-chat .box .chat .status-bar-mobile{
+        display:none;
+    }
+    .login .form .form-container .side-left{
+        width:50%;
+    }
+}
+
+@media (min-width:1025px){
+    .main{
+        justify-content: space-between;
+    }
+    .main .container-chat{
+        width: 100%;
+    }
+    .nav .status-header .back-button,
+    .container-chat .box .chat .status-bar-mobile{
+        display:none;
+    }
+}
+
+/* CUSTOM SCROLL DOCUMENT */
+::-webkit-scrollbar-track {
+    /* background-color: #F4F4F4; */
+    background-color: var(--color-black-dark);
+}
+::-webkit-scrollbar {
+    width: 6px;
+    /* background: #F4F4F4; */
+    background-color: var(--color-black-medium);
+}
+::-webkit-scrollbar-thumb {
+    /* background: #c4c4c4; */
+    /* background: #dad7d7; */
+    background-color: var(--color-black-light);
+    border-radius: 10px;
+}

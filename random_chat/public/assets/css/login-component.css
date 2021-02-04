@@ -1,0 +1,294 @@
+.login{
+  height:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(ellipse at bottom, var(--color-dark) 0%,#090a0f10 50%);
+  padding:0 20px;
+}
+.login .form {
+  width: 100%;
+  height:350px;
+  max-width: 992px;
+  padding: 50px 0;
+  /* background:#35363e; */
+  background: var(--color-teste);
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+}
+.login .form .form-container {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: all .6s;
+  position:absolute;
+  right:-100%;
+  width:90%;
+  height:inherit;
+}
+.login .form .form-container.active-login{
+  right:5%;
+}
+.login .form .form-container.out-login{
+  right:100%;
+}
+.login .form .form-container:focus{
+  border:none;
+  outline:none;
+}
+.login .form .form-container h2 {
+  color: var(--color-orange-lighter);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  width:100%;
+  text-align: center;
+}
+.login .form .form-container .side-right,
+.login .form .form-container .side-left{
+  width:48%;
+}
+.login .form .form-container .side-right{
+  display:flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.login .form .form-container .side-left{
+  width:40%;
+}
+.login .form .form-container .input-box {
+  margin-top: 20px;
+}
+.login .form .form-container .side-right .random-chat-title{
+  font-size:60px;
+  text-align: left;
+  line-height: 60px;
+  letter-spacing: 0.05em;
+  background: linear-gradient(to right, #96672b, #da9947, #F0B27A,#FF9000);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -o-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.login .form .form-container .input-box label {
+  display: block;
+  color: var(--color-white);
+  margin-bottom: 5px;
+  font-size: 12.5px;
+  text-align: left;
+}
+.login .form .form-container .input-box .form-group,
+.login .form-container .verification .v-code .form-group{
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: var(--color-dark-light);
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.05), inset 2px 2px 6px rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  border-radius: 40px;
+  position:relative;
+}
+.login .form .form-container .input-box .form-group span{
+  display:flex;
+  color: var(--color-orange-lighter);
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.login .form .form-container .input-box .form-group input,
+.login .form-container .verification .v-code .form-group input{
+  color: var(--color-orange-lighter);
+  padding:15px;
+  width:100%;
+  background: transparent;
+  border:none;
+  outline: none;
+  letter-spacing: 0.09em;
+}
+.login .form-container .verification .v-code .form-group{
+  width:100%;
+  margin: 0 auto;
+}
+.login .form-container .verification .v-code .form-group input{
+  width:45%;
+  font-size:20px;
+  padding:10px 15px;
+  letter-spacing: 12px;
+}
+.login .form .form-container .input-box .text-danger {
+  color: #a05151;
+  text-align: left; 
+  font-size:12px;
+  letter-spacing: 0.08em;
+  width:100%;
+  display:block;
+  position:absolute;
+  bottom:-20px;
+  left:0;
+}
+.login .form .form-container .input-box .hide{
+  display:none;
+}
+.login .form .form-container input::placeholder {
+  color: var(--color-light);
+  font-size:12.5px;
+  letter-spacing: 0.09em;
+}
+.login .form-container .verification .v-code .form-group input::placeholder{
+  text-align:center;
+  font-size:16px;
+  letter-spacing: 10px;
+}
+.login .form .form-container .buttons{
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+.login .form .form-container .buttons button{
+  width:100%;
+  max-width:150px;
+  border:none;
+  outline:none;
+  font-size:12.5px;
+  display:inline-block;
+  padding:12px 0;
+  cursor:pointer;
+}
+.login .form .form-container .buttons.default button{
+  background:var(--color-dark);
+  text-transform: uppercase;
+  border-radius: 40px;
+  color: var(--color-orange-lighter);
+}
+.login .form .form-container .buttons.default .btn-google{
+  background:var(--color-orange-lighter);
+  color: var(--color-dark);
+  font-weight: bolder;
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.55);
+}
+.login .form .form-container .buttons.default .btn-email{
+  box-shadow: inset -1px -1px 3px rgba(255, 255, 255, 0.05), inset 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.login .form .form-container .buttons.default .btn-cancel{
+  background: var(--color-form-invalid);
+  color: var(--color-white);
+}
+.login .form .form-container .buttons.default .btn-google:hover,
+.login .form .form-container .buttons.default .btn-email:hover{
+  opacity: 0.8;
+}
+.login .form .form-container .buttons.default .btn-email:disabled:hover{
+  opacity: 1;
+}
+.login .form .form-container .buttons button:disabled,
+.login .form .form-container .buttons.default .btn-email:disabled,
+.login .form .form-container .buttons.default .btn-google:disabled{
+  cursor:not-allowed;
+  background: #1d1d2285;
+}
+.login .form .form-container .forget {
+  margin-top: 30px;
+  color: var(--color-white);
+  font-size:12px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.login .form .form-container .forget span:hover{
+  text-decoration: underline;
+}
+.login .form .form-container .forget a {
+  color: var(--color-orange-lighter);
+  font-size:12px;
+  text-decoration: none;
+}
+.login .form .form-container .back-button{
+  border:none;
+  outline:none;
+  display:inline-block;
+  cursor:pointer;
+  background: transparent;
+  color: var(--color-orange-lighter);
+}
+.login .out-form{
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.login .in-form{
+  transform: translateX(110%);
+  opacity: 0; 
+}
+.login .active-login{
+  transform: translateX(0);
+  opacity: 1;
+}
+.login .notification{
+  position:absolute;
+  top:0;
+  left:50%;
+  width:50%;
+  transform: translate(-50%, -100%);
+  border-radius: 8px;
+  /* background: var(--color-dark); */
+  /* background: var(--color-orange-lighter); */
+  /* background: var(--color-light); */
+  /* background: var(--color-white); */
+  /* background: var(--color-orange); */
+  /* background: var(--color-orange-light); */
+  /* background:#35363e; */
+  background: linear-gradient(to left, #52535a 0%, #52535a 50%);
+  color: var(--color-white);
+  z-index: 9;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  padding:8px 16px;
+  letter-spacing: 0.08em;
+  font-family: 'Ubuntu';
+  max-height: 90px;
+  overflow-y: auto;
+  transition: all .5s;
+}
+
+/* NOVO FORM DE CODE  */
+.login .form-container .verification {
+  margin: 0 auto;
+  width:100%;
+  max-width:350px;
+}
+.login .form-container .verification .v-code{
+  margin: 15px 0;
+}
+.login .form-container .verification .menssage span{
+  color: var(--color-white);
+  font-weight:100;
+  font-style: normal;
+  letter-spacing: 0.03em;
+  font-size:12px;
+}
+.login .notification p,
+.login .notification span{
+  font-size: 12px;
+  text-align: justify;
+  color: var(--color-orange-lighter);
+}
+.login .notification span{
+  display:inline-block;
+  width:100%;
+  text-align: center;
+}
+.login .notification.notify-active{
+  transform: translate(-50%, 0%);
+  top:5px;
+}

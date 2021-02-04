@@ -1,0 +1,129 @@
+<div id="chat-box" class="box">
+    
+    
+    <div id="chat-home" class="chat">
+        <div class="status-bar-mobile">
+            <div class="perfil">
+                <button id="back-button-from-statusbar-mobile" class="back-button" type="button">
+                    <span><i class="tiny material-icons">chevron_left</i></span>
+                </button>
+                <div class="perfil-img">
+                    <span id="no-status-profile-image-from-statusbar-mobile"><i class="small material-icons">person</i></span>
+                    <img style="display:none;" id="status-profile-image-from-statusbar-mobile">
+                </div>
+                <div class="info">
+                    <span id="status-contact-name-from-statusbar-mobile" class="nome">Random chat</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="no-contact-selected"></div>
+    </div>
+    
+    
+    <div style="display:none;" id="chat-status-bar" class="status">
+        <div class="container-status">
+
+            <div class="perfil">
+                <button id="back-button" class="back-button" type="button">
+                    <span><i class="tiny material-icons">chevron_left</i></span>
+                </button>
+                <div class="perfil-img">
+                    <span id="no-status-profile-image"><i class="small material-icons">person</i></span>
+                    <img style="display:none;" id="status-profile-image">
+                </div>
+                <div class="info">
+                    <span id="status-contact-name" class="nome">Anonimous</span>
+                    <span class="time">último acesso em 20/03/2020</span>
+                </div>
+            </div>
+            
+            
+            <div class="status-attachments">
+                <button id="status-search"><i class="small material-icons">search</i></button>
+                <button id="status-attach-file"><i class="small material-icons">attach_file</i></button>
+                <button id="status-settings"><i class="small material-icons">more_vert</i></button>
+                <div style="display:none" id="status-open-attach-file" class="status-open-attach-file">
+                    <span id="status-btn-attach-camera"><i class="small material-icons">local_see</i></span>
+                    <span id="status-btn-attach-image"><i class="small material-icons">image</i></span>
+                    <span id="status-btn-attach-file"><i class="small material-icons">insert_drive_file</i></span>
+                    <span id="status-btn-attach-contact"><i class="small material-icons">person</i></span>
+                    <input multiple type="file" name="images" id="status-input" style="display:none;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div style="display:none; padding: 0 35px 20px 35px" id="chat" class="chat"></div>
+    
+    
+    <div style="display:none;" id="take-photo" class="chat">
+        <div class="sub-header-chat">
+            <span id="close-panel-camera" class="btn-default"><i class="small material-icons">close</i></span>
+            <span id="retake-picture" class="btn-default"><i class="small material-icons">refresh</i></span>
+        </div>
+        <div class="container-photo">
+            <video id="video-camera"></video>
+            <img style="display:none;" id="image-camera">
+            <span id="status-photo-take-photo" class='btn-default'><i class="small material-icons">local_see</i></span>
+            <span style="display:none;" id="status-photo-take-send" class='btn-default'><i style="margin-left: 5px;" class="small material-icons">send</i></span>
+        </div>
+    </div>
+    
+    
+    <div style="display:none;" id="preview-panel-file" class="preview-panel-file">
+        <span id="close-panel-file" class="btn-default"><i class="small material-icons">close</i></span>
+        <div class="container-file">
+            <div class="preview-content">
+                <div id="carousel" class="carousel">
+                    <div class="carousel-container">
+                        <div id="container-document-preview"></div>
+                    </div>
+                </div>
+                <div style="display:none;" class="icon-files" id="icon-file"></div>
+            </div>
+            <span class="name-photo" id="name-photo"></span>
+            <div class="add-more-image">
+                <div id="preview-image-slide" class="preview-image-slide"></div>
+                <span id="add-more-images"><i class="small material-icons">add_circle</i></span>
+            </div>
+            <div class="preview-footer">
+                <div class="preview-footer-input" contenteditable="true">comentário</div>
+                <span id="status-send-file" class="btn-default"><i style="margin-left:5px" class="small material-icons">send</i></span>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div style="display:none;" id="controls-chat" class="controls">
+        <div id="controls-container" class="controls-container">
+            <div class="emojis-container">
+                <button style="background:none;" class="btn-default emojis" id="emoji-open">
+                    <span style="font-size:25px; color:var(--color-light)">&#128515;</span>
+                </button>
+                <button style="background:none; display:none;" class="btn-default emojis" id="emoji-close">
+                    <span style="font-size:25px; color:var(--color-light)">&times;</span>
+                </button>
+            </div>
+            <div id="form-group" class="form-group">
+                <input id="input-text" type="text" placeholder="Digite uma mensagem">
+            </div>
+            <div id="icons-container" class="icons-container">
+                <div id="audio-record" style="display:none;" class="audio-record">
+                    <button class="btn-default btn-record-close" id="btn-close-audio-record"><i class="small material-icons">close</i></button>
+                    <time style="color:var(--color-white)">
+                        <span class="recording"></span>
+                        &nbsp;
+                        &nbsp;
+                        <span id="audio-record-timer" class="time"></span>
+                    </time>
+                    <button class="btn-default btn-record-send" id="btn-send-audio-record"><i class="small material-icons">check</i></button>
+                </div>
+                <button class="btn-default" id="btn-send"><i style="margin-left: 5px;" class="small material-icons">send</i></button>
+                <button class="btn-default" id="btn-micro"><i class="small material-icons">mic</i></button>
+            </div>
+            <div style="display:none;" class="emoji-panel" id="emoji-panel" tabindex="-1"></div>
+        </div>
+    </div>
+</div>

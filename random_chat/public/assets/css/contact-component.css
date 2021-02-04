@@ -1,0 +1,104 @@
+/* CONTACT */
+.container-contact{
+    /* position:fixed; */
+    top:0;
+    right:0;
+    height:100%;
+    width:100%;
+    color:var(--color-white);
+    background: linear-gradient(180deg, var(--color-black) 60%, var(--color-black) 100%);
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 300px;
+}
+
+.container-contact .contact{
+    padding:0;
+    height: 80%;
+}
+.container-contact .footer{
+    background:var(--color-black);
+    height:60px;
+}
+
+.container-contact ul,
+.nav .mdc-list .panel-contacts .contact ul{
+    list-style: none;
+    display:flex;
+    flex-direction: column;
+    max-height: 485px;
+    overflow: auto;
+}
+.container-contact ul li,
+.nav .mdc-list .panel-contacts .contact ul li{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    /* border-bottom:1px solid #e22a5360; */
+    border-bottom:1px solid var(--color-silver);
+}
+.container-contact ul li button,
+.nav .mdc-list .panel-contacts .contact ul li button{
+    width:100%;
+    background: transparent;
+    border:none;
+    outline:none;
+    color:var(--color-silver);
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    cursor:pointer;
+    transition: all 1s;
+    background-color: var(--color-dark);
+    padding:8px;
+}
+.container-contact ul li button:hover,
+.nav .mdc-list .panel-contacts .contact ul li button:hover{
+    background:var(--color-black);
+}
+.container-contact ul li button:active,
+.nav .mdc-list .panel-contacts .contact ul li button:active{
+    background-color: var(--color-silver);
+    background-size: 100%;
+    transition: all 1s;
+}
+.container-contact ul li button .img,
+.container-contact ul li button .img img,
+.nav .mdc-list .panel-contacts .contact ul li button .img,
+.nav .mdc-list .panel-contacts .contact ul li button .img img{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    height:50px;
+    width:100%;
+    max-width: 50px;
+    background:var(--color-silver);
+    border-radius: 50%;
+}
+.container-contact ul li button .img i,
+.nav .mdc-list .panel-contacts .contact ul li button .img i{
+    font-size:35px;
+    color:var(--color-white);
+}
+.container-contact ul li button .text,
+.nav .mdc-list .panel-contacts .contact ul li button .text{
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width:100%;
+    flex-direction: column;
+    color:var(--color-white);
+    margin-left: 15px;
+}
+.container-contact ul li button .text .name,
+.nav .mdc-list .panel-contacts .contact ul li button .text .name{
+    font-size:13.5px;
+    color: var(--color-orange-lighter);
+    font-style: italic;
+    letter-spacing:0.05em;
+    font-weight: 700;
+}
+/* END CONTACT */

@@ -1,0 +1,222 @@
+/* LINKS */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+/* CSS */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #35363e;
+}
+
+.container-geral {
+  font-family: 'Roboto', Sans-Serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* BODY 2 */
+
+.top-body {
+  background: linear-gradient(to bottom, black, #35363e);
+  width: 100%;
+  height: 250px;
+}
+
+.top-body i {
+  color: white;
+  cursor: pointer;
+  position: relative;
+  font-size: 40px;
+  top: 20px;
+  left: 10px;
+}
+
+/* TOP CARD */
+
+.top-card {
+  background: #1d1d22;
+  box-shadow: 0 0 10px #00000070;
+  width: 90%;
+  height: 200px;
+  position: absolute;
+  top: 80px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TOP CARD IMG */
+
+.top-card .top-card-img .img-top {
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  left: 37%;
+  bottom: 50px;
+  box-shadow: 0 0 10px #00000070;
+  border: 4px solid #1d1d22;
+}
+
+/* TOP CARD INFO */
+
+.top-card-info {
+  color: white;
+}
+
+.top-card-info .name {
+  position: relative;
+  text-align: center;
+  bottom: 35px;
+  font-size: 20px;
+  color: #FF9000;
+}
+
+.top-card-info .name i {
+  cursor: pointer;
+  position: absolute;
+  left: 270px;
+}
+
+.top-card-info .locate {
+  position: relative;
+  text-align: center;
+  bottom: 30px;
+  opacity: 0.5;
+  color: grey;
+}
+
+.top-card-info .locate i {
+  font-size: 15px;
+}
+
+.top-card-info .extras {
+  text-align: center;
+  position: relative;
+  bottom: 10px;
+}
+
+.top-card-info .extras .extras-value {
+  justify-content: space-around;
+  display: flex;
+  position: relative;
+  bottom: 5px;
+}
+
+.top-card-info .extras .extras-text {
+  justify-content: space-around;
+  display: flex;
+  color: grey;
+  opacity: 0.5;
+}
+
+.top-card-info .extras .extras-text .like {
+  position: relative;
+  left: 5px;
+}
+
+.top-card-info .extras .extras-text .idade {
+  position: relative;
+  left: 11px;
+}
+
+.top-card-info .extras .extras-text .deslike {
+  position: relative;
+  left: 5px;
+}
+
+/* MID CARD */
+
+.mid-card {
+  position: relative;
+  display: flex;
+  top: 30px;
+  width: 100%;
+  height: 270px;
+  background: #1d1d22;
+  box-shadow: 0 0 10px #00000070;
+}
+
+.mid-card .mid-card-title {
+  color: white;
+  position: relative;
+  left: 35px;
+  top: 10px;
+  font-size: 17px;
+  letter-spacing: 3px;
+}
+
+.mid-card .mid-card-img {
+  position: relative;
+  align-items: center;
+  top: 33px;
+  right: 21px;
+  
+}
+
+.mid-card .mid-card-img img {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.mid-card .mid-card-img .last {
+  opacity: 0.5;
+}
+
+.mid-card .mid-card-img span {
+  color: white;
+  opacity: 0.8;
+  font-size: 25px;
+  bottom: 70px;
+  left: 220px;
+  position: relative;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .top-body i {
+    position: relative;
+    left: 40px;
+  }
+  
+  .top-card .top-card-img .img-top {
+  position: relative;
+  left: 44.5%;
+  }
+  
+  .top-card-info .name i {
+  cursor: pointer;
+  position: absolute;
+  left: 520px;
+  }
+  
+  .mid-card {
+  position: relative;
+  height: 200px;
+  }
+  
+  .mid-card .mid-card-img {
+    position: relative;
+    right: 17px;
+  }
+  
+  .mid-card .mid-card-img img {
+    width: 130px;
+    height: 130px;
+  }
+  .mid-card .mid-card-img span {
+  left: 700px;
+  bottom: 85px;
+  position: relative;
+  }
+}

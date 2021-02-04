@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- LINKS EXTERNOS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+        <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+
+        <!-- LINKS INTERNOS -->
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <title>Random chat</title>
+    </head>
+
+    <body>
+     
+        <app-loading-page></app-loading-page>
+        <app-root id="root"></app-root>
+        <div style="display:none;" id="dialog" class="dialog-attach-contact">
+            <div class="container-contact">
+                <div class="header-contact">
+                    <span id="dialog-close" class="btn-default"><i class="small material-icons">close</i></span>
+                </div>
+                <ul id="dialog-content-contact" class="content-contact"></ul>
+                <div class="footer-contact">
+                    <span id="dialog-footer-contact"></span>
+                </div>
+                <button id="dialog-btn-send-contact" class="btn-default">
+                    <i style="margin-left:5px;" class="small material-icons">send</i>
+                </button>
+            </div>
+        </div>
+        <app-snackbar id="notification-container-snackbar"></app-snackbar>
+    </body>
+</html>

@@ -1,0 +1,102 @@
+<div class="mdc-drawer__content">
+    
+    
+    <nav class="mdc-list">
+        <div class="status-header">
+            <button id="back-button-from-sidebar" class="back-button" type="button">
+                <span><i class="tiny material-icons">chevron_left</i></span>
+            </button>
+            <div id="sidebar-profile" class="perfil-img">
+                <span id="no-status-header-profile" class="perfil"><i class="lart material-icons">person</i></span>
+                <img style="display:none;" id="status-header-profile">
+            </div>
+            <span style="font-size:20px;">Random Chat</span>
+            <span id="header-messages" style="cursor:pointer"><i class="small material-icons">chat</i></span>
+        </div>
+        
+        
+        <div style="display:none;" class="panel-profile" id="panel-profile">
+            <div class="status-header">
+                <button id="close-panel-profile" class="close-profile">
+                    <span><i class="small material-icons">chevron_left</i></span>
+                </button>
+                <span style="font-size:20px;">Perfil</span>
+            </div>
+           <div class="profile">
+                <div id="profile-img" class="profile-img">
+                    <input style="display:none;" type="file" id="profile-input-photo">
+                    <span id="profile-set-photo" class="perfil"><i class="lart material-icons">person</i></span>
+                    <img style="display:none;" id="profile-config-image">
+                </div>
+                <div id="container-menu" class="container-menu">
+                    <div class="set-name">
+                        <div style="max-height: 80px; overflow-y: auto;" id="edit-name" class="input-edit-name" contenteditable="true">Edite seu nome</div>
+                        <span style="background:transparent" id="edit-name-enter"><i class="small material-icons">check</i></span>
+                    </div>
+                    <button style="display:none;" id="logout" class="mdc-button foo-button custom-ripple">
+                        <span class="mdc-button__label">
+                            <i class="small material-icons">input</i>
+                            <span>logout</span>
+                        </span>
+                    </button>
+                </div>
+           </div>
+        </div>
+        
+        
+        <div style="display:none;" class="panel-contacts" id="panel-contacts">
+            <div class="status-header">
+                <button id="close-panel-contacts" class="close-contacts">
+                    <span><i class="small material-icons">chevron_left</i></span>
+                </button>
+            </div>
+            <form id="profile-add-contact" class="add-contact">
+                <input name="email" type="text" placeholder="E-mail do contato">
+                <button type="submit">adicionar</button>
+            </form>
+
+            <div class="contact">
+                <ul id="contacts-profile"></ul>
+            </div>
+
+         </div>
+
+        
+        <div class="profile-card">
+            <div class="top-section">
+                <div class="notification">
+                    <span>
+                        <i class="fas fa-bell"></i>
+                        <i class="has-notification small material-icons">fiber_manual_record</i>
+                    </span>
+                </div>
+                <div class="pic">
+                    <span id="no-photo-url"><i class="small material-icons">person</i></span>
+                    <img style="display:none;" id="photo-url">
+                </div>
+                <div id="profile-name" class="name"></div>
+            </div>
+            <div class="botton-section">
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+                <div class="container-social">
+                    <div class="Idade">17 <span>Idade</span></div>
+                    <div class="Contatos">30 <span>Contatos</span></div>
+                    <div class="Likes">70 <span>Likes</span></div>
+                    <div class="Dislikes">5 <span>Dislikes</span></div>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+   
+</div>
+<div id="header-footer" class="footer">
+
+    <div id="hide-menu">
+        <button>hide</button>
+    </div>
+</div>

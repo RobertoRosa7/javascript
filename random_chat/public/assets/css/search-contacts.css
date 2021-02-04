@@ -1,0 +1,42 @@
+
+
+/* SEARCH PEOPLE */
+.search-contacts .container-sp {
+    background: var(--color-dark);
+    border-radius: 40px;
+	/* border: 1px solid var(--color-orange); */
+}
+.search-contacts .container-sp .sp{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 10px;
+}
+.search-contacts .container-sp .sp-btn {
+	color: black;
+	width:30px;
+	height:30px;
+	border-radius: 50%;
+	background: var(--color-orange);
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.search-contacts .container-sp .sp-btn .material-icons{
+    font-size:18px;
+    color:var(--color-white);
+}
+.search-contacts .container-sp .sp-txt {
+	border: none;
+	background: none;
+	outline: none;
+	float: left;
+	padding: 0;
+	color: white;
+	font-size: 16px;
+	transition: 0.4s;
+	line-height: 40px;
+    width:80%;
+}
+/* END SEARCH PEOPLE */

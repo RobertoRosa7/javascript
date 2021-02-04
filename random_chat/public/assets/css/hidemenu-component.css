@@ -1,0 +1,76 @@
+.container .menu { 
+    content:'';
+    background:var(--color-dark);
+    border-radius: 45px; 
+    box-shadow: 0 0 5px rgba(0,0,0,0.35);
+    position: relative;
+    left: -150px;
+    padding: 14px 10px;
+    width: 200px;
+    transition: 1s;
+    cursor:pointer;
+    height: 30px;
+  }
+  .container .menu .setinha { 
+    position: relative; 
+    display: block; 
+    background: var(--color-orange);
+    width: 30px; 
+    height: 3px; 
+    top: 15px; 
+    left: 147px; 
+    transition: 1s;
+}
+.container .menu .setinha:before,
+.container .menu .setinha:after {
+  background: var(--color-orange);
+  content: '';
+  display: block;
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  left: 13px;
+  transition: 1s;
+}
+.container .menu .setinha:before {
+  top: 7px;
+  transform: rotate(-45deg);
+}
+.container .menu .setinha:after {
+  bottom: 7px;
+  transform: rotate(45deg);
+}
+.container input {
+  display: none;
+}
+.container input:checked ~ label .menu {
+    background: var(--color-orange); 
+    /* border: 2px solid var(--color-white); */
+    border-radius:50%; 
+    width:40px; 
+    height:30px; 
+    position: relative; 
+    transition: all 1s;
+    left: 240px;
+}
+.container input:checked ~ label .setinha {
+  transform: rotate(360deg);
+  width: 30px;
+  height: 3px;
+  left: 5px;
+  top: 12px;
+  background:var(--color-dark);
+
+}
+.container input:checked ~ label .setinha:before {
+  transform: rotate(45deg);
+  left: -1px;
+  background:var(--color-dark);
+
+}
+.container input:checked ~ label .setinha:after {
+  transform: rotate(-45deg);
+  left: -1px;
+  background:var(--color-dark);
+
+}

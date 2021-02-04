@@ -1,0 +1,24 @@
+<div id="app" class="main">
+  <app-sidebar id="sidebar" class="nav mdc-drawer shrine-drawer"></app-sidebar>
+  
+  <app-chat id="container-chat" class="container-chat"></app-chat>
+  
+  <section class="container-contact" id="container-contact">
+    <div class="container-contact">
+    <div class="search-contacts">
+        <div class="container-sp">
+            <div class="sp">
+                <input id="input-search-contact" class="sp-txt" type="text" placeholder="Procurar">
+                <a id="btn-search-contact" class="sp-btn" href="#">
+                  <i class="small material-icons">search</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <app-list-contacts class="contact"></app-list-contacts>
+    <div class="footer"></div>
+    </div>
+  </section>
+   
+  <app-button-random class="container-sa"></app-button-random>
+</div>
