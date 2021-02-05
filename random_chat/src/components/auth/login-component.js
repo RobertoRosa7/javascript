@@ -9,7 +9,7 @@ import RenderView from "../../services/renderView";
 import Database from "../../services/websql-service";
 
 export default class Login extends HTMLElement {
-  constructor() {
+  constructor(...props) {
     super();
     this.appendChild(ReaderDom.appendComponent(LoginComponent));
     new ProtoService();
@@ -39,7 +39,15 @@ export default class Login extends HTMLElement {
     this.onSubmit();
     this.resetForm();
     this.deleteAllBlocked();
+
+    this.props = {};
+
+    for (let i = 0; i < this.attributes.length; i++) {
+      this.props[this.attributes.item(i).name] = this.attributes.item(i).value;
+    }
+    console.log(this.props);
   }
+
   async deleteAllBlocked() {
     const db = await this.db.createIndexdb("black_list");
     const data = await this.db.databaseIsReady(db);

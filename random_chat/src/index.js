@@ -16,7 +16,7 @@ export default class Root extends HTMLElement {
       root: "/",
       hooks: {
         before: function (newPage) {
-          console.info("before page load hooks", newPage);
+          // console.info("before page load hooks", newPage);
         },
       },
       page404: function (path) {
@@ -54,8 +54,9 @@ export default class Root extends HTMLElement {
       document.querySelector("app-loading-page").style.display = "none";
       self.clearIfExistsComponents(self);
 
-      const LoginComponent = window.customElements.get("app-login");
-      self.appendChild(new LoginComponent().firstChild);
+      // const LoginComponent = window.customElements.get("app-login");
+      // self.appendChild(new LoginComponent().firstChild);
+      self.appendChild(ReaderDom.appendComponent(`<app-login></app-login>`));
 
       if (self.querySelector("#login-form"))
         self
