@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object and Prototyping</title>
+
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h4 {
+            padding: 0;
+            margin-bottom: 0.3em;
+        }
+
+        h3 {
+            background-color: lightblue;
+        }
+
+        .article {
+            margin-left: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Objectified - Chapter 1</h2>
+    <hr>
+    <h3>What does it mean to be an OOP language?</h3>
+    <article class="article">
+        <small>
+            JavaScript is an object-oriented programming (OOP) language? created by Brendan Eich, which he released
+            after a
+            few weeks
+            of development while working for Netscape.
+        </small>
+    </article>
+
+
+    <h3>Inspect Objects</h3>
+    <article class="article">
+        <h4>Object.hasOwnProperty</h4>
+        <small>
+            The hasOwnProperty method allows you to identify whether the property in question is present on the object
+            instance.
+        </small>
+
+        <h4>Object.getPrototypeOf</h4>
+        <small>This method is used to return the prototype of a particular object</small>
+
+        <h4>Object.getOwnPropertyName</h4>
+        <small>This method returns all the property names of an object, even the ones that cannot be enumerated</small>
+
+        <h4>Object.getOwnPropertyDescriptor</h4>
+        <small>This method gives you a detailed descrption of those settings for any property of an object</small>
+
+
+        <h4>Object.keys</h4>
+        <small>This method return a list of only the enumerable properties of an object</small>
+
+        <h4>Object.isFrozen</h4>
+        <small>This method return true or false if the object being checked cannot be extended and its properties cannot
+            be modified</small>
+
+        <h4>Object.isPrototypeOf</h4>
+        <small>This method checks every link in a given object's prototype chain for the existence of another
+            object</small>
+
+        <h4>Object.isExtensible</h4>
+        <small>By default, new objects in javascript are extensible, meaning that new properties can be added</small>
+
+        <h4>Object.isSealed</h4>
+        <small>This function returns true or false depending on whether an object cannot be extended and all its
+            properties are non-configurable</small>
+
+        <h4>Object.valueOf</h4>
+        <small>Object.valueOf is used to describe an object with a primitive value. All objects receive this function,
+            but it is essentially</small>
+    </article>
+
+    <h3>Modifying Objects</h3>
+    <article class="article">
+        <h4>Object.freeze</h4>
+        <small>Freezing an object prevents it from being changed again. Frozen object cannot accept new
+            properties</small>
+
+        <h4>Object.defineProperties</h4>
+        <small>This function allows new properties to be defined or existing properties to be modified</small>
+
+
+        <h4>Object.preventExtensions</h4>
+        <small>This function allows new properties to be defined or existing properties to be modified</small>
+
+        <h4>Object.prototype</h4>
+        <small>
+            Setting the prototype of an object decouples the object from its existing prototype chain and appends it to
+            the end of the new object specified.
+            This is useful of imbuting objects with the properties and methods of another object and those in its chain
+        </small>
+
+
+        <h4>Object.seal</h4>
+        <small>
+            Sealing an object makes it immutable, meaning that new properties cannot be added, and existing properties
+            are marked as nonconfigurable.
+        </small>
+    </article>
+
+
+    <h3>Calling Objects</h3>
+    <article class="article">
+        <h4>Function.call and Function.apply</h4>
+        <small>
+            It is useful at times for one object to borrow the function of another object. Meaning that the borrowing
+            object simply executes the lent function as if it were its own.
+        </small>
+    </article>
+
+    <h3>Creating Objects</h3>
+    <article class="article">
+        <h4>Object Literal</h4>
+        <small>The Literal syntax describes objects-in-line with the rest of the code as a series of comma-delineated
+            properties</small>
+    </article>
+
+
+    <script type="text/javascript">
+
+        function configurable() {
+            var foo = {};
+            var bar = new Object();
+
+            console.log(foo)
+            console.log(bar)
+
+
+            var car = {}
+
+            // a Car can have any number of doors
+            Object.defineProperty(car, 'doors', {
+                configurable: true,
+                value: 4
+            });
+
+            Object.defineProperty(car, 'wheels', {
+                configurable: false,
+                value: 4
+            });
+
+            delete car.doors
+            delete car.wheels
+
+            Object.defineProperty(car, 'doors', {
+                configurable: true,
+                value: 5
+            });
+
+            // uncaught type error: cannot redefine property wheels
+            Object.defineProperty(car, 'wheels', {
+                configurable: true,
+                value: 4
+            });
+
+            console.log(car);
+        }
+
+        function enumerable() {
+            var car = {};
+
+            Object.defineProperty(car, 'doors', {
+                writable: true,
+                configurable: true,
+                enumerable: true,
+                value: 4
+            });
+
+            Object.defineProperty(car, 'wheels', {
+                writable: true,
+                configurable: true,
+                enumerable: true,
+                value: 4
+            });
+
+            Object.defineProperty(car, 'secretTrackingDeviceEnable', {
+                enumerable: false,
+                value: true
+            });
+
+            // => doors
+            // => wheels
+            for (var x in car) {
+                console.log(x)
+            }
+
+            // => ['doors', 'wheels']
+            console.log(Object.keys(car));
+
+            // => ['doors', 'wheels', 'secretTrackingDeviceEnable']
+            console.log(Object.getOwnPropertyNames(car));
+
+            // => false
+            console.log(car.propertyIsEnumerable('secretTrackingDeviceEnable'));
+
+            // => true
+            console.log(car.secretTrackingDeviceEnable);
+
+        }
+
+        function writable() {
+            var car = {};
+
+            Object.defineProperty(car, 'wheels', {
+                value: 4,
+                writable: false
+            });
+
+            // => 4
+            console.log(car.wheels);
+
+            car.wheels = 5; // make the change value property
+
+            // => 4
+            console.log(car.wheels);
+        }
+
+        function inspectingObject() {
+            var o = { foo: 'bar' };
+
+            console.log(Object.getOwnPropertyDescriptor(o, 'foo'));
+
+            var box = Object.create({}, {
+                openLid: {
+                    value: function () {
+                        return 'nothing';
+                    },
+                    enumerable: false,
+                },
+                openSecretComportment: {
+                    value: function () {
+                        return 'treasure';
+                    },
+                    enumerable: false
+                }
+            });
+
+            // => ['openLid', 'openSecretComportment']
+            console.log(Object.getOwnPropertyNames(box).sort());
+
+            var a = {};
+
+            // => true
+            console.log(Object.getPrototypeOf(a) === Object.prototype && Object.prototype === a.__proto__);
+
+            var foo = { foo: 'foo' };
+            var bar = Object.create(foo, {
+                bar: {
+                    enumerable: true,
+                    value: 'bar'
+                }
+            });
+
+            // => bar
+            // => foo
+            for (var x in bar) {
+                console.log(x);
+            }
+
+            var myProps = Object.getOwnPropertyNames(bar).map(function (i) {
+                return bar.hasOwnProperty(i) ? i : undefined;
+            });
+
+            // => ['bar']
+            console.log(myProps);
+
+
+            var box = Object.create({}, {
+                openLid: {
+                    value: function () {
+                        return 'nothing';
+                    },
+                    enumerable: true,
+                },
+                openSecretComportment: {
+                    value: function () {
+                        return 'treasure';
+                    },
+                    enumerable: false
+                }
+            });
+
+            // => ['openLid']
+            console.log(Object.keys(box));
+
+            var bombPop = {
+                wrapping: 'plastic',
+                flavors: ['cherry', 'lime', 'blue raspberry']
+            };
+
+            // => false
+            console.log(Object.isFrozen(bombPop));
+            delete bombPop.wrapping;
+
+            // => undefined
+            console.log(bombPop.wrapping);
+
+            // => prevent futher modifications
+            Object.freeze(bombPop);
+
+            delete bombPop.flavors;
+
+            // => ['cherry', 'lime', 'blue raspberry']
+            console.log(bombPop.flavors);
+
+
+            // => true
+            Object.prototype.isPrototypeOf([]);
+            Object.prototype.isPrototypeOf(() => { });
+            Function.prototype.isPrototypeOf(() => { });
+            Function.prototype.isPrototypeOf(function () { });
+
+
+            var car = { doors: 4 };
+
+            // => true
+            console.log(Object.isExtensible(car));
+
+            Object.preventExtensions(car);
+
+            // => false
+            console.log(Object.isExtensible(car) === true);
+
+
+            var ziplockBag = {};
+
+            // => false
+            console.log(Object.isSealed(ziplockBag) === true);
+
+            // => true
+            console.log(Object.isExtensible(ziplockBag));
+
+            Object.seal(ziplockBag);
+
+            // true
+            console.log(Object.isSealed(ziplockBag) === true);
+
+
+            var Car = function (name) {
+                this.name = name;
+            }
+
+            var tesla = Object.create(Car.prototype, {
+                name: {
+                    value: 'tesla'
+                }
+            });
+
+            console.log(tesla.valueOf());
+
+            Car.prototype.valueOf = function () {
+                return this.name;
+            }
+
+            // => tesla
+            console.log(tesla.valueOf());
+
+
+        }
+
+        function modifyingObject() {
+            var bomb = {
+                wrapping: 'plastic',
+                flavors: ['cherry', 'lime', 'blue raspberry']
+            }
+
+            // => false
+            console.log(Object.isFrozen(bomb));
+
+            Object.freeze(bomb);
+
+            delete bomb.flavors;
+
+            // => ['cherry', 'lime', 'blue raspberry']
+            console.log(bomb.flavors);
+
+            // => true
+            console.log(Object.isFrozen(bomb));
+
+
+            var car = {};
+
+            Object.defineProperties(car, {
+                wheels: {
+                    writable: true,
+                    configurable: true,
+                    enumerable: true,
+                    value: 4,
+                },
+                doors: {
+                    writable: true,
+                    configurable: true,
+                    enumerable: true,
+                    value: 4
+                }
+            });
+
+
+            // => 4
+            console.log(car.wheels);
+
+            // => 4
+            console.log(car.doors);
+
+
+            var car = { doors: 4 };
+
+            // => true
+            console.log(Object.isExtensible(car));
+
+            Object.preventExtensions(car);
+
+            // => false
+            console.log(Object.isExtensible(car));
+
+
+            var Dog = function () { };
+            var Tabby = function () { }
+            var Cat = function () { };
+
+            Dog.prototype.speak = function () {
+                return 'woof';
+            }
+
+            Cat.prototype.speak = function () {
+                return 'meow';
+            }
+
+
+            Tabby.prototype = new Cat();
+
+            var tabbyCat = new Tabby();
+
+
+            // => 'meow'
+            console.log(tabbyCat.speak());
+
+            // => undefined
+            console.log(tabbyCat.prototype);
+
+            // setting the prototype of an object instance will not effect the instantiated properties
+            tabbyCat.prototype = new Dog();
+
+            console.log(tabbyCat.prototype);
+
+            // => 'meow'
+            console.log(tabbyCat.speak());
+
+
+            var envelope = { letter: 'To whom it may concern' };
+
+            // => false
+            console.log(Object.isSealed(envelope));
+
+            Object.seal(envelope);
+
+
+            envelope.letter = 'Oh hai';
+            envelope.stamped = true;
+
+            // => 'Oh hai'
+            console.log(envelope.letter);
+
+            // => undefined
+            console.log(envelope.stamped);
+
+        }
+
+        function callObjects() {
+            var friend = {
+                warmth: 0,
+                useSweater: function (level) {
+                    this.warmth = level;
+                }
+            }
+
+            var me = {
+                warmth: 0,
+                isWarm: function () {
+                    return this.warmth === 100;
+                }
+            }
+
+            // => false
+            console.log(me.isWarm());
+
+            try {
+                me.useSweater(100);
+            } catch (e) {
+                // => Object has no method useSweater
+                console.log(e.message);
+            }
+
+            friend.useSweater.call(me, 100);
+
+            // => true
+            console.log(me.isWarm());
+
+            me.warmth = 0;
+
+            // => false
+            console.log(me.isWarm());
+
+            friend.useSweater.apply(me, [100]);
+
+            // => true
+            console.log(me.isWarm());
+
+        }
+
+        function createObjects() {
+            var foo = { bar: 'baz' };
+
+            var foo2 = Object.create(Object.prototype, {
+                bar: {
+                    writable: true,
+                    configurable: true,
+                    value: 'baz'
+                }
+            });
+
+            // => baz
+            console.log(foo.bar);
+            console.log(foo2.bar);
+
+
+            var Animal, cat, dog;
+
+            Animal = function (inLove) {
+                this.lovesHumans = inLove || false;
+            }
+
+            cat = new Animal();
+            dog = new Animal(true);
+
+            // => false
+            console.log(cat.lovesHumans);
+
+            // => true
+            console.log(dog.lovesHumans);
+
+            try {
+                console.log(cat.jump());
+            } catch (e) {
+                // cat.jump is not a function
+                console.log(e.message);
+            }
+
+
+            Animal.prototype.jump = function () {
+                return 'how high?';
+            }
+
+            cat.jump = function() {
+                return 'no';
+            }
+
+            // => no
+            console.log(cat.jump());
+
+            // => how high?
+            console.log(dog.jump());
+        }
+
+        // configurable();
+        // enumerable();
+        // writable();
+        // inspectingObject();
+        // modifyingObject();
+        // callObjects();
+        createObjects();
+    </script>
+</body>
+
+</html>

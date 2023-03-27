@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h4 {
+            padding: 0;
+            margin-bottom: 0.3em;
+        }
+
+        h3 {
+            background-color: lightblue;
+        }
+
+        .article {
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+
+        pre {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Functions - Chapter 2</h2>
+    <hr>
+
+    <article class="article">
+        <h4>Blocks in JavaScript</h4>
+        <small>Before you can understand functions in javascript, you have to appreciate blocks, javascript blocks are
+            nothing more than statements grouped together
+        </small>
+        <script type="text/javascript">
+            !function () {
+                console.log("started")
+                var triumph = false;
+                var cake = false;
+                var satisfaction = 0;
+                var isLie;
+                var note;
+
+                isLie = function (val) {
+                    return val === false;
+                }
+
+                if (isLie(cake)) {
+                    triumph = true;
+                    makeNote('huge success');
+                    satisfaction += 10;
+                }
+
+                function makeNote(message) {
+                    note = message;
+                }
+
+                makeNote('Moderate Success');
+                makeNote('Huge Success');
+            }();
+
+        </script>
+    </article>
+
+    <article class="article">
+        <h4>Winning Arguments</h4>
+        <small>
+            The Arguments object is a useful tool for designing functions that do not require a predetermined number of
+            Arguments as part of their methods signature
+        </small>
+
+        <script type="text/javascript">
+            var sum = function () {
+                var len = arguments.length;
+                var total = 0;
+
+                for (var x = 0; x < len; x++) {
+                    total += arguments[x];
+                }
+
+                return total;
+            }
+            console.log(sum(1, 2, 3));
+        </script>
+
+    </article>
+
+    <article class="article">
+        <h4>DefaultParameters (ECMAScript 6)</h4>
+        <small>
+            Many language allow you to choose default values for arguments in the method signature. In ECMAScript 6
+            (ES6) will be one of those language
+        </small>
+
+        <script type="text/javascript">
+            var join = function (foo = 'foo', baz = (foo === 'foo') ? join(foo + "!") : 'baz') {
+                return foo + ':' + baz;
+            }
+            // => hi:there
+            console.log(join("hi", "there"));
+        </script>
+    </article>
+
+    <article class="article">
+        <h4>Rest (ECMAScript 6)</h4>
+        <small>
+            Sometimes it's useful, even necessary, to design functions that take an arbitrary number of arguments
+        </small>
+
+        <script type="text/javascript">
+            var dispatcher = {
+                join: function (before, after) {
+                    return before + ':' + after;
+                },
+                sum: function () {
+                    var args = Array.prototype.slice.call(arguments);
+
+                    return args.reduce(function (previousValue, currentValue, index, array) {
+                        return previousValue + currentValue;
+                    });
+                }
+            }
+
+            var proxy = {
+                relay: function (method) {
+                    var args;
+                    args = Array.prototype.splice.call(arguments, 1);
+                    return dispatcher[method].apply(dispatcher, args);
+                }
+            }
+
+            // => bar:baz
+            console.log(proxy.relay('join', 'bar', 'baz'));
+
+
+            // => 28
+            console.log(proxy.relay('sum', 1, 2, 3, 4, 5, 6, 7));
+        </script>
+    </article>
+
+    <article class="article">
+        <h4>Function Types</h4>
+        <small>
+            Now that you have a better understanding of blocks and arguments, let's dive deepr into function declaration
+            and function expressions
+        </small>
+
+        <script type="text/javascript">
+            // Declaration
+            function declaration(cake) {
+                return cake === true;
+            }
+
+            // Expression
+            var expression = function (cake) {
+                return cake === false;
+            }
+        </script>
+    </article>
+
+    <article class="article">
+        <h4>Arrow Prone (ECMAScript 6)</h4>
+        <small>
+            As of ES5, Javascript only support function level scope. This means that this always references the scope
+            inside the function body. This quality of function level scope has always been an awkward fact of life for
+            developers who are used to block level scope.
+        </small>
+
+        <script type="text/javascript">
+
+            // Option: 1 use a local free variable to bypass the need to reference this.
+            var VendingMachine = function () {
+                this.stock = ["sgt. Pepper", "Choke", "Spite"];
+                var self = this;
+
+                return {
+                    dispense: function () {
+                        if (self.stock.length > 0) {
+                            return self.stock.pop();
+                        }
+                    }
+                }
+            }
+
+            var popMachine = new VendingMachine();
+
+            // => Spite
+            console.log(popMachine.dispense());
+
+
+            // Option: 2 use a bound function to reference this.
+            var VendingMachine = function () {
+                this.stock = ["sgt. Pepper", "Choke", "Spite"];
+                var dispense = function () {
+                    if (this.stock.length > 0) {
+                        return this.stock.pop();
+                    }
+                }
+                return { dispense: dispense.bind(this) }
+            }
+
+            var popMachine = VendingMachine();
+
+            // => Spite
+            console.log(popMachine.dispense());
+
+
+            var VendingMachine = function () {
+                this.stock = ["sgt. Pepper", "Choke", "Spite"];
+                return {
+                    dispense: () => {
+                        if (this.stock.length > 0) {
+                            return this.stock.pop();
+                        }
+                    }
+                }
+            }
+
+            var popMachine = VendingMachine();
+
+            // => Spite
+            console.log(popMachine.dispense());
+
+        </script>
+    </article>
+
+    <article class="article">
+        <h4>Recursive Functions</h4>
+        <small>
+            Recursive functions are simply functions that have the capability to call themselves.
+        </small>
+
+        <script type="text/javascript">
+            var tree = {
+                name: 'User',
+                children: [
+                    {
+                        name: 'heavysister',
+                        children: [
+                            {
+                                name: 'Applications',
+                                children: []
+                            },
+                            {
+                                name: 'Downloads',
+                                children: []
+                            },
+                            {
+                                name: 'Libray',
+                                children: [
+                                    {
+                                        name: 'Accounts',
+                                        children: []
+                                    },
+                                    {
+                                        name: 'Arduino',
+                                        children: []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: 'root',
+                        children: []
+                    }
+                ]
+            }
+
+            var walker = function (branch, newDepth) {
+                var depth = newDepth || 0;
+                var len = branch.children.length;
+                console.log(depth + ':' + branch.name);
+
+                while (len > 0) {
+                    len--;
+                    walker(branch.children[len], depth + 1);
+                }
+
+            }
+
+            walker(tree);
+        </script>
+    </article>
+
+</body>
+
+</html>

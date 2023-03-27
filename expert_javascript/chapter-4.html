@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jargon & Slang</title>
+
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h4 {
+            padding: 0;
+            margin-bottom: 0.3em;
+            font-size: 1.4em;
+        }
+
+        .article {
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+
+        .article>small {
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Jargon and Slang - Chapter 4</h2>
+    <hr>
+    <div style="text-align: center;">
+        <i>
+            One of the reasons there are so many terms of conditions fo ice is that the mariners observing it were often
+            trapped in it, and had nothing to do except look at it.
+        </i>
+    </div>
+
+    <article class="article">
+        <h4>What Is Programmatic Jargon?</h4>
+        <small>
+            <strong>Programmatic jargon is a compression of code through the use of highly specific often technical
+                relue of the language.
+            </strong>
+            Howerver. because jargon is so highly contextual, it often acts as a social divider or lingual border guard
+            between communities. This can be what makes jargon feel so impenetrable by outsiders. Knowing this, you can
+            begin to identify criteria for defining programmatic jargon.
+        </small>
+
+        <h4>Coercion</h4>
+        <small>
+            In JavaScript as in most other languages, <i>coercion</i> is the act of forcing an object or entity of one
+            type into another. This is not to be confused with <i>types conversion</i>, which is the explicit
+            transformation between types. In JavaScript, explicit type conversion would look like this:
+        </small>
+
+        <pre>
+            <small>
+                var a = (1).toString();
+                console.log(a); // "1"
+
+                var b = 1 + "";
+                console.log(b); // "1"
+            </small>
+        </pre>
+        <script type="text/javascript">
+            var a = (1).toString();
+            console.log(a); // "1"
+
+            var b = 1 + "";
+            console.log(b); // "1"
+        </script>
+    </article>
+
+    <article class="article">
+        <h4>Context-Aware Coercion</h4>
+        <small>
+            Many built-in core object can be coerced and thereforce support unary and binary operations. The coerced
+            object tailors the return values of valuesOf() and toString() to be contextually meaningful
+        </small>
+
+        <pre>
+            <small>
+                // 1672774627338
+                console.log(+new Date());
+    
+                // Tue Jan 03 2023 16:37:37 GMT-0300 (Horário Padrão de Brasília)
+                console.log(new Date() + '');
+    
+                var Money = function (val, sym) {
+                    this.currentSymbol = sym;
+                    this.cents = val;
+                }
+    
+                var dollar = new Money(100, '$');
+    
+                Money.prototype.toString = function () {
+                    return this.currentSymbol + (this.cents / 100).toFixed(2);
+                }
+    
+                Money.prototype.valueOf = function () {
+                    return this.cents;
+                }
+    
+                console.log(+dollar); // 100
+                console.log(dollar + ''); // "100"
+                console.log([dollar] + '');  // "$1.00"
+            </small>
+        </pre>
+
+        <small>
+            The order in which the conversion occurs seems to be at odds with what you learned in the Date example. To
+            get an answer, you need to look at the steps JavaScript takes when coercing this object into a String. Here
+            operator overlanding again is the problem. You might assume that because you are concatenating a string,
+            JavaScript would use toString() instead of valueOf(), like it does for the Date object.
+        </small>
+
+        <pre>
+            <small>
+                var ToPrimitive;
+                ToPrimitive = function (obj) {
+                    var funct, functions, val, _i, _len, types;
+                    functions = ['valueOf', 'toString'];
+                    types = ['string', 'number', 'boolean'];
+
+
+                    if (typeof obj === 'object') {
+                        if (obj instanceof Date) {
+                            functions = ['toString', 'valueOf'];
+                        }
+                        for (_i = 0, _len = functions.length; _i < _len; _i++) {
+                            funct = functions[_i];
+
+                            if (typeof obj[funct] === 'function') {
+                                val = obj[funct]();
+                                if (types.includes(typeof val)) {
+                                    return val;
+                                }
+                            }
+                        }
+                        throw new Error('DefaultValue is ambigious.');
+                    }
+                    return obj;
+                }
+
+                console.log(ToPrimitive([1])); // "1"
+                console.log(ToPrimitive(new Date())); // Tue Jan 03 2023 17:13:51 GMT-0300 (Horário Padrão de Brasília)
+                console.log(ToPrimitive(typeof [1].valueOf())); // object
+                console.log(ToPrimitive(typeof [1].toString())); // string
+            </small>
+        </pre>
+
+        <script type="text/javascript">
+            // 1672774627338
+            console.log(+new Date());
+
+            // Tue Jan 03 2023 16:37:37 GMT-0300 (Horário Padrão de Brasília)
+            console.log(new Date() + '');
+
+            var Money = function (val, sym) {
+                this.currentSymbol = sym;
+                this.cents = val;
+            }
+
+            var dollar = new Money(100, '$');
+
+            Money.prototype.toString = function () {
+                return this.currentSymbol + (this.cents / 100).toFixed(2);
+            }
+
+            Money.prototype.valueOf = function () {
+                return this.cents;
+            }
+
+            console.log(+dollar); // 100
+            console.log(dollar + ''); // "100"
+            console.log([dollar] + '');  // "$1.00"
+
+
+            var ToPrimitive;
+            ToPrimitive = function (obj) {
+                var funct, functions, val, _i, _len, types;
+                functions = ['valueOf', 'toString'];
+                types = ['string', 'number', 'boolean'];
+
+
+                if (typeof obj === 'object') {
+                    if (obj instanceof Date) {
+                        functions = ['toString', 'valueOf'];
+                    }
+                    for (_i = 0, _len = functions.length; _i < _len; _i++) {
+                        funct = functions[_i];
+
+                        if (typeof obj[funct] === 'function') {
+                            val = obj[funct]();
+                            if (types.includes(typeof val)) {
+                                return val;
+                            }
+                        }
+                    }
+                    throw new Error('DefaultValue is ambigious.');
+                }
+                return obj;
+            }
+
+            console.log(ToPrimitive([1])); // "1"
+            console.log(ToPrimitive(new Date())); // Tue Jan 03 2023 17:13:51 GMT-0300 (Horário Padrão de Brasília)
+            console.log(ToPrimitive(typeof [1].valueOf())); // object
+            console.log(ToPrimitive(typeof [1].toString())); // string
+        </script>
+    </article>
+
+</body>
+
+</html>

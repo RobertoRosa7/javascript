@@ -1,9 +1,9 @@
 export default class Errors {
-    constructor(){
+    constructor() {
         this.errors = [];
         console.log(this.errors);
     }
-    static throwErrors(error){
+    static throwErrors(error) {
         const fetch = [];
         fetch.push(error);
 

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resize Element</title>
+</head>
+<style>
+    .resizer {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: black;
+        z-index: 2;
+    }
+
+    .resizer.ne {
+        top: -1px;
+        right: -1px;
+        cursor: ne-resize;
+    }
+
+    .resizer.nw {
+        top: -1px;
+        left: -1px;
+        cursor: nw-resize;
+    }
+
+    .resizer.sw {
+        bottom: -1px;
+        left: -1px;
+        cursor: sw-resize;
+
+    }
+
+    .resizer.se {
+        bottom: -1px;
+        right: -1px;
+        cursor: se-resize;
+    }
+
+    .item {
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        background-color: brown;
+    }
+</style>
+
+<body>
+    <div class="item">
+        <div class="resizer ne"></div>
+        <div class="resizer nw"></div>
+        <div class="resizer sw"></div>
+        <div class="resizer se"></div>
+    </div>
+    <script type="text/javascript">
+        const el = document.querySelector('.item');
+        let isResizing = false;
+
+        el.addEventListener('mousedown', mousedown);
+
+        function mousedown(md) {
+            window.addEventListener('mousemove', mousemove);
+            window.addEventListener('mouseup', mouseup);
+
+            let prevX = md.clientX;
+            let prevY = md.clientY;
+
+            function mousemove(mv) {
+                if (!isResizing) {
+                    let newX = prevX - mv.clientX;
+                    let newY = prevY - mv.clientY;
+
+                    const rect = el.getBoundingClientRect();
+                    el.style.left = rect.left - newX + 'px';
+                    el.style.top = rect.top - newY + 'px';
+
+                    prevX = mv.clientX;
+                    prevY = mv.clientY;
+                }
+            }
+
+            function mouseup(mu) {
+                window.removeEventListener('mousemove', mousemove);
+                window.removeEventListener('mouseup', mouseup);
+            }
+        }
+
+        const resizers = document.querySelectorAll('.resizer');
+        let currentResizer;
+
+        for (let resizer of resizers) {
+            resizer.addEventListener('mousedown', onMousedown);
+
+            function onMousedown(onDown) {
+                currentResizer = onDown.target;
+                isResizing = true;
+
+                let prevX = onDown.clientX;
+                let prevY = onDown.clientY;
+
+                window.addEventListener('mousemove', onMouseMove);
+                window.addEventListener('mouseup', onMouseUp);
+
+                function onMouseMove(onMove) {
+                    const rect = el.getBoundingClientRect();
+
+                    if (currentResizer.classList.contains('se')) {
+                        el.style.width = rect.width - (prevX - onMove.clientX) + 'px';
+                        el.style.height = rect.height - (prevY - onMove.clientY) + 'px';
+                    } else if (currentResizer.classList.contains('sw')) {
+                        el.style.width = rect.width + (prevX - onMove.clientX) + 'px';
+                        el.style.height = rect.height - (prevY - onMove.clientY) + 'px';
+                        el.style.left = rect.left - (prevX - onMove.clientX) + 'px';
+                    } else if (currentResizer.classList.contains('ne')) {
+                        el.style.width = rect.width - (prevX - onMove.clientX) + 'px';
+                        el.style.height = rect.height + (prevY - onMove.clientY) + 'px';
+                        el.style.top = rect.top - (prevY - onMove.clientY) + 'px';
+                    } else if (currentResizer.classList.contains('nw')) {
+                        el.style.width = rect.width + (prevX - onMove.clientX) + 'px';
+                        el.style.height = rect.height + (prevY - onMove.clientY) + 'px';
+                        el.style.top = rect.top - (prevY - onMove.clientY) + 'px';
+                        el.style.left = rect.left - (prevX - onMove.clientX) + 'px';
+                    }
+
+                    prevX = onMove.clientX;
+                    prevY = onMove.clientY;
+                }
+
+                function onMouseUp() {
+                    window.removeEventListener('mousemove', onMouseMove);
+                    window.removeEventListener('mouseup', onMouseUp);
+                    isResizing = false;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

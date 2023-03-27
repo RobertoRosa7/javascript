@@ -1,8 +1,8 @@
-import Messages from "./messages";
+import Messages from './messages';
 
 export default class Database {
-    constructor(){
-        this.db = openDatabase('random_chat', '1.0','web database', 2 * 1024 * 1024);
+    constructor() {
+        this.db = openDatabase('random_chat', '1.0', 'web database', 2 * 1024 * 1024);
 
         this.createTableBlackList();
         this.createTableUsers();
@@ -81,11 +81,11 @@ export default class Database {
     }
 
     // create table dynamic coming soon
-    createTableBlackList(){
+    createTableBlackList() {
         const query = `CREATE TABLE IF NOT EXISTS black_list(id unique,chipher,email,exceeded_reset,time_start)`;
-        this.db.transaction(exec => exec.executeSql(query));
+        this.db.transaction((exec) => exec.executeSql(query));
     }
-    createTableUsers(){
+    createTableUsers() {
         const query = `CREATE TABLE users(
             id unique,
             name,
@@ -93,9 +93,9 @@ export default class Database {
             photo,
             password,
             token)`;
-        this.db.transaction(exec => exec.executeSql(query));
+        this.db.transaction((exec) => exec.executeSql(query));
     }
-    createUser(user){
+    createUser(user) {
         const query = `INSERT INTO users(
             id,
             name,
@@ -103,188 +103,217 @@ export default class Database {
             photo,
             password,
             token)VALUES(?,?,?,?,?,?)`;
-        const array = [
-            user.id,
-            user.name,
-            user.email,
-            user.photo,
-            user.password,
-            user.token
-        ];
-        this.db.transaction(exec => exec.executeSql(query, array));
+        const array = [user.id, user.name, user.email, user.photo, user.password, user.token];
+        this.db.transaction((exec) => exec.executeSql(query, array));
     }
-    insertTable(table, payload){
+    insertTable(table, payload) {
         this.db.transaction((exec) => {
             const query = `INSERT INTO ${table}(id,chipher,email,exceeded_reset,time_start)VALUES(?,?,?,?,?)`;
-            const array = [payload.id,payload.chipher,payload.email,payload.exceeded_reset,payload.time_start];
+            const array = [
+                payload.id,
+                payload.chipher,
+                payload.email,
+                payload.exceeded_reset,
+                payload.time_start,
+            ];
             exec.executeSql(query, array);
         });
     }
-    select(table){
-        return new Promise(resolve => {
+    select(table) {
+        return new Promise((resolve) => {
             const register = [];
-            this.db.transaction(exec => {
-                exec.executeSql(`SELECT * FROM ${table}`, [], (tx, result) => {
-                    for(let i = 0; i < result.rows.length; i++){
-                        register.push(result.rows.item(i));
-                    }
-                }, null);
+            this.db.transaction((exec) => {
+                exec.executeSql(
+                    `SELECT * FROM ${table}`,
+                    [],
+                    (tx, result) => {
+                        for (let i = 0; i < result.rows.length; i++) {
+                            register.push(result.rows.item(i));
+                        }
+                    },
+                    null
+                );
             });
             setTimeout(() => resolve(register), 300);
         });
     }
-    selectByEmail(table, email){
-        return new Promise(resolve => {
-            this.db.transaction(exec => {
+    selectByEmail(table, email) {
+        return new Promise((resolve) => {
+            this.db.transaction((exec) => {
                 const query = `SELECT * FROM ${table} WHERE email=?`;
-                exec.executeSql(query, [email], (tx, result) => {
-                    (result.rows.length > 0) ? resolve(result.rows[0]) : resolve(null);
-                }, null);
+                exec.executeSql(
+                    query,
+                    [email],
+                    (tx, result) => {
+                        result.rows.length > 0 ? resolve(result.rows[0]) : resolve(null);
+                    },
+                    null
+                );
             });
         });
     }
-    delete(table, email){
-        this.db.transaction(exec => {
+    delete(table, email) {
+        this.db.transaction((exec) => {
             const query = `DELETE FROM ${table} WHERE email=?`;
             exec.executeSql(query, [email]);
         });
     }
-    dropTable(table){
-        this.db.transaction(exec => {
-            exec.executeSql(`DROP TABLE ${table}`, [],
-                (exec,results) => console.info("Table Dropped"),
-                (exec,error) => console.error("Error: " + error.message)
+    dropTable(table) {
+        this.db.transaction((exec) => {
+            exec.executeSql(
+                `DROP TABLE ${table}`,
+                [],
+                (exec, results) => console.info('Table Dropped'),
+                (exec, error) => console.error('Error: ' + error.message)
             );
-       });
+        });
     }
 
-
-
-    databaseIsReady(db){
-        return new Promise(resolve => db.onsuccess = e => resolve(e.target.result));
+    databaseIsReady(db) {
+        return new Promise((resolve) => (db.onsuccess = (e) => resolve(e.target.result)));
     }
-    getData(ref, name, id){
-        return new Promise(resolve =>
-            ref.transaction(name, 'readonly').objectStore(name).get(id)
-                .onsuccess = e => resolve(e.target.result)
+    getData(ref, name, id) {
+        return new Promise(
+            (resolve) =>
+                (ref.transaction(name, 'readonly').objectStore(name).get(id).onsuccess = (e) =>
+                    resolve(e.target.result))
         );
     }
-    addData(ref, payload, name){
-        return new Promise(resolve =>
-            ref.transaction(name, 'readwrite').objectStore(name).add(payload)
-                .onsuccess = e => resolve(e.target.result));
+    addData(ref, payload, name) {
+        return new Promise(
+            (resolve) =>
+                (ref.transaction(name, 'readwrite').objectStore(name).add(payload).onsuccess = (
+                    e
+                ) => resolve(e.target.result))
+        );
     }
-    insertContacts(ref, name, payloads){
-        return new Promise(resolve => {
+    insertContacts(ref, name, payloads) {
+        return new Promise((resolve) => {
             const storeContacts = ref.transaction(name, 'readwrite').objectStore(name);
-            for(let i in payloads){ storeContacts.add(payloads[i]) }
+            for (let i in payloads) {
+                storeContacts.add(payloads[i]);
+            }
             resolve(storeContacts);
         });
     }
-    deleteData(ref, name, id){
-        return new Promise(resolve =>
-            ref.transaction(name, 'readwrite').objectStore(name).delete(id)
-                .onsuccess = e => resolve(e.target.result)
+    deleteData(ref, name, id) {
+        return new Promise(
+            (resolve) =>
+                (ref.transaction(name, 'readwrite').objectStore(name).delete(id).onsuccess = (e) =>
+                    resolve(e.target.result))
         );
     }
-    getAllData(ref, name){
-        return new Promise(resolve => {
-            ref.transaction(name, 'readonly').objectStore(name).getAll()
-                .onsuccess = e => resolve(e.target.result);
+    getAllData(ref, name) {
+        return new Promise((resolve) => {
+            ref.transaction(name, 'readonly').objectStore(name).getAll().onsuccess = (e) =>
+                resolve(e.target.result);
         });
     }
-    addMessage(ref, name, payload){
-        return new Promise(resolve => {
-            ref.transaction(name, 'readwrite').objectStore(name).add(payload)
-                .onsuccess = e => resolve(e.target.result);
+    addMessage(ref, name, payload) {
+        return new Promise((resolve) => {
+            ref.transaction(name, 'readwrite').objectStore(name).add(payload).onsuccess = (e) =>
+                resolve(e.target.result);
         });
     }
-    createIndexdb(name){
-        return new Promise(resolve => {
+    createIndexdb(name) {
+        return new Promise((resolve) => {
             const db = window.indexedDB.open(name, 2);
-            db.onupgradeneeded = e => db.result.createObjectStore(name, { keyPath: 'email' });
+            db.onupgradeneeded = (e) => db.result.createObjectStore(name, { keyPath: 'email' });
             resolve(db);
         });
     }
-    createIndexdbChat(name){
-        return new Promise(resolve => {
+    createIndexdbChat(name) {
+        return new Promise((resolve) => {
             const db = window.indexedDB.open(name, 3);
-            db.onupgradeneeded = e => db.result.createObjectStore(name, { autoIncrement: true });
+            db.onupgradeneeded = (e) => db.result.createObjectStore(name, { autoIncrement: true });
             resolve(db);
         });
     }
-    getAllMessages(store){
-        return new Promise(resolve => {
-            this.createIndexdbChat(store)
-                .then(db => this.databaseIsReady(db)
-                    .then(ref => this.getAllData(ref, store)
-                        .then(result => resolve(result))));
+    getAllMessages(store) {
+        return new Promise((resolve) => {
+            this.createIndexdbChat(store).then((db) =>
+                this.databaseIsReady(db).then((ref) =>
+                    this.getAllData(ref, store).then((result) => resolve(result))
+                )
+            );
         });
     }
-    addMessage(store, payload){
-        return new Promise(resolve => {
-            this.createIndexdbChat(store)
-                .then(db => this.databaseIsReady(db)
-                    .then(data => this.addData(data, payload, store)
-                        .then(result => Messages.sendMessage(payload)
-                            .then(succes => resolve(succes)))));
+    addMessage(store, payload) {
+        return new Promise((resolve) => {
+            this.createIndexdbChat(store).then((db) =>
+                this.databaseIsReady(db).then((data) =>
+                    this.addData(data, payload, store).then((result) =>
+                        Messages.sendMessage(payload).then((succes) => resolve(succes))
+                    )
+                )
+            );
         });
     }
-    addMessageLocal(store, payload){
-        return new Promise(resolve => {
-            this.createIndexdbChat(store)
-                .then(db => this.databaseIsReady(db)
-                    .then(data => this.addData(data, payload, store)
-                        .then(result => resolve(result))));
+    addMessageLocal(store, payload) {
+        return new Promise((resolve) => {
+            this.createIndexdbChat(store).then((db) =>
+                this.databaseIsReady(db).then((data) =>
+                    this.addData(data, payload, store).then((result) => resolve(result))
+                )
+            );
         });
     }
-    addAllMessages(store, payloads){
-        return new Promise(resolve => {
-            this.createIndexdbChat(store)
-                .then(db => this.databaseIsReady(db)
-                    .then(data => {
-                        const messages = data.transaction(store, 'readwrite').objectStore(store);
-                        for(let i in payloads){ messages.add(payloads[i]) }
-                        resolve(messages);
-                    }));
+    addAllMessages(store, payloads) {
+        return new Promise((resolve) => {
+            this.createIndexdbChat(store).then((db) =>
+                this.databaseIsReady(db).then((data) => {
+                    const messages = data.transaction(store, 'readwrite').objectStore(store);
+                    for (let i in payloads) {
+                        messages.add(payloads[i]);
+                    }
+                    resolve(messages);
+                })
+            );
         });
     }
-    countAllMessages(store){
-        return new Promise(resolve => {
-            this.createIndexdbChat(store)
-                .then(db => this.databaseIsReady(db)
-                    .then(ref => this.getAllData(ref, store)
-                        .then(result => resolve(result.length))))
+    countAllMessages(store) {
+        return new Promise((resolve) => {
+            this.createIndexdbChat(store).then((db) =>
+                this.databaseIsReady(db).then((ref) =>
+                    this.getAllData(ref, store).then((result) => resolve(result.length))
+                )
+            );
         });
     }
-    filterContactActive(contact, messages){
-        return new Promise(resolve => 
-            resolve(messages.filter(message => message.chatId == contact.chatId)).sort((a, b) => {
-                if(a.timestamp > b.timestamp) return 1;
-                if(a.timestamp < b.timestamp) return -1;
+    filterContactActive(contact, messages) {
+        return new Promise((resolve) =>
+            resolve(messages.filter((message) => message.chatId == contact.chatId)).sort((a, b) => {
+                if (a.timestamp > b.timestamp) return 1;
+                if (a.timestamp < b.timestamp) return -1;
                 return 1;
-            }));
+            })
+        );
     }
-    saveMessagesOnIndexedb(contact){
-        return new Promise(async resolve => 
-            resolve(await this.addAllMessages('chats', await this.fetchContactsFromFirebase(contact))));
+    saveMessagesOnIndexedb(contact) {
+        return new Promise(async (resolve) =>
+            resolve(
+                await this.addAllMessages('chats', await this.fetchContactsFromFirebase(contact))
+            )
+        );
     }
-    countAllMessagesComingFirebase(contact){
-        return new Promise(async resolve => {
+    countAllMessagesComingFirebase(contact) {
+        return new Promise(async (resolve) => {
             const contacts = await this.fetchContactsFromFirebase(contact);
             resolve(contacts.length);
         });
     }
-    fetchContactsFromFirebase(contact){
-        return new Promise(resolve => {
+    fetchContactsFromFirebase(contact) {
+        return new Promise((resolve) => {
             const accumated = [];
-            Messages.getRef(contact.chatId).orderBy('timestamp').onSnapshot(docs => {
-                docs.forEach(doc => {
-                    let data = doc.data();
-                    let payload = {...data, id: doc.ref.id};
-                    accumated.push(data);
+            Messages.getRef(contact.chatId)
+                .orderBy('timestamp')
+                .onSnapshot((docs) => {
+                    docs.forEach((doc) => {
+                        let data = doc.data();
+                        let payload = { ...data, id: doc.ref.id };
+                        accumated.push(data);
+                    });
                 });
-            });
             setTimeout(async () => resolve(accumated), 700);
         });
     }

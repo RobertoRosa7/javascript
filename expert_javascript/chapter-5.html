@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living Asynchronously</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h4 {
+            padding: 0;
+            margin-bottom: 0.3em;
+            font-size: 1.4em;
+        }
+
+        .article {
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+
+        .article>small {
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Living Asynchronously - Chapter 5</h2>
+    <hr>
+    <div style="text-align: center;">
+
+    </div>
+
+    <article class="article">
+        <h3>Callbacks</h3>
+        <script type="text/javascript">
+            var person = {};
+            var bank = {
+                funds: 0,
+                receiveDepositFrom: function (person) {
+                    this.funds += person.fund;
+                    person.funds = 0;
+                }
+            };
+
+            // => undefined
+            document.writeln(person.funds + '</br>');
+            person.funds = (function work() {
+                return 100;
+            })();
+
+            // => 100
+            document.writeln(person.funds + '</br>');
+            bank.receiveDepositFrom(person);
+
+            // => 0
+            document.writeln(person.funds + '</br>')
+        </script>
+    </article>
+
+
+    <article class="article">
+        <h3>Perceived Performance</h3>
+        <script type="text/javascript">
+            var person = {};
+            var bank = {
+                funds: 0,
+                receiveDepositFrom: function (person) {
+                    // Now NaN because person.funds is undefined
+                    this.funds += person.funds;
+                    person.funds = 0;
+                }
+            };
+
+            // => undefined
+            document.write(`1 - step: ${person.funds}</br>`);
+            (function work() {
+                // assume you have JQuery installed
+                $.ajax({
+                    method: 'GET',
+                    url: 'https://api.github.com/users',
+                    context: document.body
+                }).done(function () {
+                    person.funds = 100;
+                });
+            })(person);
+
+            // => undefined
+            document.write(`2 - step: ${person.funds}</br>`);
+            bank.receiveDepositFrom(person);
+
+            // => 0
+            document.write(`3 - step: ${person.funds}</br>`);
+        </script>
+    </article>
+
+    <article class="article">
+        <h3 id="passing-style">Continuation Passing Style</h3>
+        <script type="text/javascript">
+            Element.prototype.before = function (element) {
+                this.parentNode.insertBefore(element, this.previousSibling);
+                return this;
+            }
+
+            Element.prototype.after = function (element) {
+                this.parentElement.insertBefore(element, this.nextSibling);
+                return this;
+            }
+
+            var person2 = {};
+            var bank2 = {
+                funds: 0,
+                receiveDepositFrom: function (person2) {
+                    this.funds += person2.funds;
+                    person2.funds = 0;
+                }
+            };
+
+            // => undefined
+            // document.writeln(`1 - step: ${person2.funds}</br>`);
+
+            (function work2(callback) {
+                // assume you have JQuery installed
+                $.ajax({
+                    method: 'GET',
+                    url: 'https://api.github.com/users',
+                    context: document.body
+                }).done(function () {
+                    callback(100);
+                });
+            })(function (amount) {
+                person2.funds = amount;
+                // document.writeln(`2 - step: ${person2.funds}</br>`);
+                bank2.receiveDepositFrom(person2);
+
+                // => 100
+                // document.writeln(`3 - step: ${person2.funds}</br>`);
+                const p = document.createElement('p');
+                p.innerHTML = `6 - step -: ${person2.funds}`;
+
+                document.querySelector('#passing-style').after(p)
+            });
+
+        </script>
+    </article>
+
+</body>
+
+</html>

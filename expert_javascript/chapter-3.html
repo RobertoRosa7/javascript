@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object and Prototyping</title>
+
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h4 {
+            padding: 0;
+            margin-bottom: 0.3em;
+            font-size: 1.4em;
+        }
+
+        .article {
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+
+        .article>small {
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Getting Closure - Chapter 3</h2>
+    <hr>
+    <div style="text-align: center;">
+        <i>A Closure is the act of binding all free variables and functions into a closed expression that persist beyond
+            the
+            lexical scope from which they were created
+        </i>
+    </div>
+
+    <article class="article">
+        <h4>The straight dope on scope</h4>
+        <small>
+            Before you can truly understand closures, you must take a step back and look at how scope works in
+            javascript.
+        </small>
+        </br>
+
+        <pre>
+            <small>
+                var iamFree = 'Free to be mel';
+                
+                function canHazAccess(notFree) {
+                    var notSoFree = 'I am bound to this scope';
+                    console.log(iamFree) // "Free to be mel"
+                }
+
+                console.log(notSoFree) // notSoFree is not define
+                canHazAccess();
+            </small>
+        </pre>
+
+        <small>
+            As you can see, the function declaration canHazAccess() can reference the iamFree variable because the
+            variable belongs to the enclosing scope. </br>
+            Function level scopes act like one-way mirrors; they let elements inside the function body spy on variables
+            in the outer, while they remain hidden. As you'll see, clousures short-circuit this relationship and provide
+            a mechanism whereby the inner scopes internals can be accessed by the outer scope.
+        </small>
+
+        <script type="text/javascript">
+            var iamFree = 'Free to be mel';
+
+            function canHazAccess(notFree) {
+                var notSoFree = 'I am bound to this scope';
+                console.log(iamFree) // "Free to be mel"
+            }
+
+            console.log(notSoFree) // notSoFree is not define
+            canHazAccess();
+
+        </script>
+    </article>
+
+    <article class="article">
+        <h4>Thisunderstanding</h4>
+        <small>
+            One feature of scope that routinely throws developers off (even seasoned ones) is the use of the this
+            keywords as it pertains to the lexical scope.
+        </small>
+
+        <button id="car_key">click here</button>
+
+        <pre>
+            <small>
+                var Car, tesla;
+                Car = function() {
+                    this.start = function() {
+                        console.log('car started');
+                    }
+                    this.turnKey = function() {
+                        var carKey = document.getElementById('car_key');
+                        carKey.onclick = function(event) {
+                            this.start();
+                        }
+                    }
+                    return this;
+                }
+
+                tesla = new Car();
+                tesla.turnKey(); // car started
+            </small>
+        </pre>
+        <script type="text/javascript">
+            var Car, tesla;
+            Car = function () {
+                this.start = function () {
+                    console.log('car started');
+                }
+                this.turnKey = function () {
+                    var self = this;
+                    var carKey = document.getElementById('car_key');
+                    carKey.onclick = function (event) {
+                        self.start();
+                    }
+                }
+                return this;
+            }
+
+            tesla = new Car();
+            tesla.turnKey();
+        </script>
+
+    </article>
+
+    <article class="article">
+        <h4>My First Closure</h4>
+        <small>
+            In its basic form, a clousure is simply an outer function that return an inner function. Doing this create a
+            mechanism to return
+            an enclosed scope on demond.
+        </small>
+        <small>
+            One feature of scope that routinely throws developers off (even seasoned ones) is the use of the this
+            keywords as it pertains to the lexical scope.
+        </small>
+
+
+        <pre>
+            <small>
+                function outer(name) {
+                    var hello = 'hi';
+
+                    return inner = function() {
+                        return hello + ' ' + name;
+                    }
+                }
+
+                // Create and use the closure
+                var name = outer('Beto')()
+
+                // => 'hi Beto!';;
+                console.log(name);
+            </small>
+        </pre>
+
+        <small>
+            As you learned in the previous chapter, javascript introcuced a new function style: called arrow function
+        </small>
+
+        <pre>
+            <small>
+                var outer2 = (name) => () => 'Hi' + ' ' + name
+
+                var name2 = outer2('Mark')();
+                console.log(name2)
+            </small>
+        </pre>
+
+        <small>
+            In these two examples, you can see that the local variable hello can be used in the return statement of the
+            inner function.
+            This example borders on meaninglessness, though, so let's look at a slightly more complex closure:
+        </small>
+
+        <pre>
+            <small>
+                let car;
+                const carFactory = (kind) => {
+                    const wheelCount = 4;
+                    const start = () => console.log('started width ' + wheelCount + ' wheels .');
+                    return () => ({make: kind, wheels: wheelCount, startEngine: start})();
+                }
+            </small>
+        </pre>
+
+        <h4>Why Use Closures?</h4>
+        <small>
+            Let's look at some use cases on where they can solve common problmes in javascript.
+        </small>
+
+        <h4>Object Factories</h4>
+        <small>
+            The previous closure implements what is commonly known as the <i>Factory Pattner</i>. This highlights one of
+            the best features of closures: their capability to hide state. JavaScript doesn't have the concept of
+            private or protected contexts, but using closures give us a good way to emulate some level of privacy.
+
+            Av. Doutor Ricardo Jaset, 2419, Vila Fermiano Pinto 9h
+            94269-5352 Divena
+        </small>
+
+
+        <h4>Create a Binding Proxy</h4>
+        <small>
+            As promised, let's revisit the proceding Car class. The scoping problem was solved by assigning the outer
+            function's this reference to a that free variables. Instead of that approach we'll solve it through the use
+            of closures. First, you create a reusable closure function called proxy, which takes a function and a
+            context and returns a new function.
+        </small>
+        <button id="carkey">click here</button>
+
+        <pre>
+            <small>
+                // Create a binding proxy
+                var Car, proxy, tesla;
+                Car = function () {
+                    this.start = function () {
+                        return console.log('car started');
+                    }
+
+                    this.turnkey = function () {
+                        var carKey;
+                        carKey = document.getElementById('carkey');
+                        carKey.onclick = proxy(function (event) {
+                            this.start();
+                        }, this);
+                    }
+                    return this;
+                }
+
+                // use a closure to bind the outer scope's reference to this into the newly inner scope
+                proxy = function (callback, self) {
+                    return function () {
+                        return callback.apply(self, arguments)
+                    }
+                }
+
+                tesla = new Car();
+                tesla.turnkey();
+            </small>
+        </pre>
+
+
+        <h4>Contextually Aware DOM Manipulation</h4>
+        <small>
+            This example comes directly from Jurity Zaytserv's excellent article "Use Cases for JavaScript Closure". His
+            example code demonstrate how to use a closure to ensure a DOM element has a unique ID. The largest takeaway
+            is that you can use closure as a way to maintain internal states about you program in a encapsulated manter
+        </small>
+
+        <pre>
+            <small>
+                // Generated Unique Id
+                var getUniqueId = (function () {
+                    var id = 0;
+                    return function (element) {
+                        if (!element.id) {
+                            element.id = 'generated-uid-' + id++;
+                        }
+                        return element.id;
+                    }
+                })();
+
+                const elementWithId = document.createComment('p');
+                const elementWithoutId = document.createComment('p');
+
+                elementWithId.id = 'foo-bar';
+
+                console.log(getUniqueId(elementWithId));
+                console.log(getUniqueId(elementWithoutId));
+            </small>
+        </pre>
+
+
+        <h4>Singleton Module Pattern</h4>
+        <small>
+            Modules are used to encapsulate and organize related code together under one roof. Using modules keeps your
+            codebase cleaner, and easier to test and reuse.
+        </small>
+
+        <pre>
+            <small>
+                // Create a closure
+                var SecretStore = (function () {
+                    var data, secret, newSecret;
+    
+                    // Emulation of a private variables and functions
+                    data = 'secret';
+                    secret = function () {
+                        return data;
+                    }
+    
+                    newSecret = function (newValue) {
+                        data = newValue;
+                        return secret();
+                    }
+    
+                    // Return an object literal which is the only way to access the private data.
+                    return { getSecret: secret, setSecret: newSecret }
+                })();
+    
+                var secret = SecretStore;
+                console.log(secret.getSecret());
+                console.log(secret.setSecret('foo'));
+                console.log(secret.getSecret());
+            </small>
+        </pre>
+        <script type="text/javascript">
+            function outer(name) {
+                var hello = 'hi';
+
+                return inner = function () {
+                    return hello + ' ' + name;
+                }
+            }
+
+            // Create and use the closure
+            var name = outer('Beto')();
+
+            // => 'hi Beto!';
+            console.log(name);
+
+            var outer2 = (name) => () => 'Hi' + ' ' + name
+
+            var name2 = outer2('Mark')();
+            console.log(name2);
+
+
+            let car;
+            const carFactory = (kind) => {
+                const wheelCount = 4;
+                const start = function () {
+                    console.log('started width ' + wheelCount + ' wheels .');
+                };
+
+                return (function () {
+                    return {
+                        make: kind,
+                        wheels: wheelCount,
+                        startEngine: start
+                    }
+                }());
+            }
+
+            car = carFactory('Tesla');
+            console.log(car.startEngine());
+
+
+
+            // Create a binding proxy
+            var Car, proxy, tesla;
+            Car = function () {
+                this.start = function () {
+                    return console.log('car started');
+                }
+
+                this.turnkey = function () {
+                    var carKey;
+                    carKey = document.getElementById('carkey');
+                    carKey.onclick = proxy(function (event) {
+                        this.start();
+                    }, this);
+                }
+                return this;
+            }
+
+            // use a closure to bind the outer scope's reference to this into the newly inner scope
+            proxy = function (callback, self) {
+                return function () {
+                    return callback.apply(self, arguments)
+                }
+            }
+
+            tesla = new Car();
+            tesla.turnkey();
+
+
+            // Generated Unique Id
+            var getUniqueId = (function () {
+                var id = 0;
+                return function (element) {
+                    if (!element.id) {
+                        element.id = 'generated-uid-' + id++;
+                    }
+                    return element.id;
+                }
+            })();
+
+            const elementWithId = document.createComment('p');
+            const elementWithoutId = document.createComment('p');
+
+            elementWithId.id = 'foo-bar';
+
+            console.log(getUniqueId(elementWithId));
+            console.log(getUniqueId(elementWithoutId));
+
+
+
+            // Create a closure
+            var SecretStore = (function () {
+                var data, secret, newSecret;
+
+                // Emulation of a private variables and functions
+                data = 'secret';
+                secret = function () {
+                    return data;
+                }
+
+                newSecret = function (newValue) {
+                    data = newValue;
+                    return secret();
+                }
+
+                // Return an object literal which is the only way to access the private data.
+                return { getSecret: secret, setSecret: newSecret }
+            })();
+
+            var secret = SecretStore;
+            console.log(secret.getSecret());
+            console.log(secret.setSecret('foo'));
+            console.log(secret.getSecret());
+        </script>
+
+    </article>
+
+</body>
+
+</html>

@@ -1,13 +1,15 @@
-import Firebase from "./firebase";
+import Firebase from './firebase';
 
 export default class UploadFileService {
-
-    static sendFile(from, file){
+    static sendFile(from, file) {
         return new Promise(async (resolve, reject) => {
-            try{
-                const fileData = await Firebase.storage().ref(from).child(`${Date.now()}_${file.name}`).put(file);
+            try {
+                const fileData = await Firebase.storage()
+                    .ref(from)
+                    .child(`${Date.now()}_${file.name}`)
+                    .put(file);
                 resolve(await fileData.ref.getDownloadURL());
-            }catch(e){
+            } catch (e) {
                 console.error(e);
                 reject(e);
             }
@@ -16,11 +18,11 @@ export default class UploadFileService {
             // async function progress(e){
             //     console.log('uploading...');
             // }
-            
+
             // async function error(e){
             //     console.error(e)
             // }
-            
+
             // async function success(){
             //     uploadTask.then(e => console.log(e.downloadURL));
             // }
